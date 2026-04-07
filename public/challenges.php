@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . '/../views/header.php';
+
 session_start();
 
 require_once __DIR__ . '/../config.php';
@@ -15,9 +17,10 @@ $challenges = $challengeModel->getAll();
 <h1>Challenges</h1>
 
 <?php foreach ($challenges as $c): ?>
-  <div>
+  <div class="card">
     <h3><?= $c['title'] ?></h3>
-    <p>Type: <?= $c['type'] ?></p>
-    <a href="challenge.php?id=<?= $c['id'] ?>">Open</a>
+    <p style="color:#06b6d4;">[<?= $c['type'] ?>]</p>
+    <a href="challenge.php?id=<?= $c['id'] ?>">Open →</a>
   </div>
 <?php endforeach; ?>
+<?php require_once __DIR__ . '/../views/footer.php'; ?>

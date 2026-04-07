@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . '/../views/header.php';
+
 session_start();
 
 require_once __DIR__ . '/../config.php';
@@ -29,6 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <input type="password" name="password" placeholder="Password" required>
   <button type="submit">Login</button>
 </form>
+<<<<<<< HEAD
 =======
 <link rel="stylesheet" href="../css/style.css">
 
@@ -52,3 +55,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 </div>
 >>>>>>> Stashed changes
+=======
+<?php require_once __DIR__ . '/../views/footer.php'; ?>
+>>>>>>> 6a82f1afd6b2c5ebfc9af859ce7f6beb1a70c4dc

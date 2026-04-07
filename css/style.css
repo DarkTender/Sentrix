@@ -22,14 +22,21 @@ body::before {
   border-radius: 16px;
   padding: 20px;
   margin-bottom: 20px;
+<<<<<<< HEAD
   transition: 0.2s;
+=======
+  transition: 0.3s;
+>>>>>>> 6a82f1afd6b2c5ebfc9af859ce7f6beb1a70c4dc
 }
 
 .card:hover {
   border-color: #22c55e;
   box-shadow: 0 0 20px #22c55e33;
+<<<<<<< HEAD
   transform: translateY(-3px);
 
+=======
+>>>>>>> 6a82f1afd6b2c5ebfc9af859ce7f6beb1a70c4dc
 }
 button {
   background: linear-gradient(135deg, #22c55e, #06b6d4);
@@ -102,6 +109,7 @@ input:focus {
   padding: 30px;
   width: 100%;
 }
+<<<<<<< HEAD
 .card {
   animation: fadeIn 0.4s ease;
 }
@@ -186,4 +194,6 @@ input {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px);}
   to { opacity: 1; transform: translateY(0);}
-}
+}}}
+=======
+>>>>>>> 6a82f1afd6b2c5ebfc9af859ce7f6beb1a70c4dc

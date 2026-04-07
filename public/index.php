@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . '/../views/header.php';
+
 session_start();
 
 require_once __DIR__ . '/../config.php';
@@ -10,6 +12,7 @@ Auth::check();
 $db = new Database();
 $conn = $db->connect();
 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 echo "✅ Connected to database!";
 =======
@@ -97,3 +100,8 @@ require_once __DIR__ . '/../views/header.php';
 
 <?php require_once __DIR__ . '/../views/footer.php'; ?>
 >>>>>>> Stashed changes
+=======
+echo "✅ Connected to database!";
+?>
+<?php require_once __DIR__ . '/../views/footer.php'; ?>
+>>>>>>> 6a82f1afd6b2c5ebfc9af859ce7f6beb1a70c4dc
