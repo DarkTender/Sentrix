@@ -106,12 +106,6 @@ require_once __DIR__ . '/../views/header.php';
       </div>
     </a>
 
-    <a href="profile.php" class="ix-link">
-      <div class="ix-card">
-        <h4>Profile</h4>
-      </div>
-    </a>
-
   </section>
 
 </main>

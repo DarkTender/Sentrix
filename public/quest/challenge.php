@@ -1,9 +1,14 @@
 <?php
 session_start();
 
-require_once __DIR__ . '/../config.php';
-require_once __DIR__ . '/../app/core/Database.php';
-require_once __DIR__ . '/../app/models/Challenge.php';
+if (!isset($_SESSION['user_id'])) {
+    header("Location: /Sentrix/public/login.php");
+    exit;
+}
+
+require_once __DIR__ . '/../../config.php';
+require_once __DIR__ . '/../../app/core/Database.php';
+require_once __DIR__ . '/../../app/models/Challenge.php';
 
 $db = new Database();
 $conn = $db->connect();
@@ -11,6 +16,12 @@ $conn = $db->connect();
 $challengeModel = new Challenge($conn);
 
 $id = $_GET['id'] ?? null;
+
+if (!$id) {
+    header("Location: /Sentrix/public/challenges.php");
+    exit;
+}
+
 $challenge = $challengeModel->getById($id);
 
 if (!$challenge) {
@@ -24,16 +35,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $userAnswer = trim($_POST['answer']);
 
     if ($userAnswer === trim($challenge['correct_answer'])) {
-        $result = "correct";
 
-        $stmt = $conn->prepare("UPDATE users SET score = score + ? WHERE id = ?");
-        $stmt->execute([$challenge['points'], $_SESSION['user_id']]);
+        $check = $conn->prepare("
+            SELECT * FROM submissions 
+            WHERE user_id = ? AND challenge_id = ? AND is_correct = 1
+        ");
+        $check->execute([$_SESSION['user_id'], $challenge['id']]);
+
+        if ($check->rowCount() == 0) {
+            $stmt = $conn->prepare("
+                UPDATE users SET score = score + ? WHERE id = ?
+            ");
+            $stmt->execute([$challenge['points'], $_SESSION['user_id']]);
+        }
+
+        $result = "correct";
 
     } else {
         $result = "wrong";
     }
 
-    $stmt = $conn->prepare("INSERT INTO submissions (user_id, challenge_id, answer, is_correct) VALUES (?, ?, ?, ?)");
+    $stmt = $conn->prepare("
+        INSERT INTO submissions (user_id, challenge_id, answer, is_correct) 
+        VALUES (?, ?, ?, ?)
+    ");
     $stmt->execute([
         $_SESSION['user_id'],
         $challenge['id'],
@@ -42,15 +67,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     ]);
 }
 ?>
-<?php require_once __DIR__ . '/../views/header.php'; ?>
+
+<?php require_once __DIR__ . '/../../views/header.php'; ?>
 
 <main class="challenge-container">
 
   <div class="challenge-box">
 
     <div class="challenge-top">
-      <h1 class="challenge-title"><?= $challenge['title'] ?></h1>
-      <span class="challenge-type"><?= $challenge['type'] ?></span>
+      <h1 class="challenge-title"><?= htmlspecialchars($challenge['title']) ?></h1>
+
+      <div>
+        <span class="challenge-type"><?= strtoupper($challenge['type']) ?></span>
+        <span class="badge <?= strtolower($challenge['difficulty']) ?>">
+          <?= ucfirst($challenge['difficulty']) ?>
+        </span>
+      </div>
     </div>
 
     <div class="challenge-desc">
@@ -74,7 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <div class="explanation">
           <strong>Explanation:</strong><br>
-          <?= $challenge['explanation'] ?>
+          <?= htmlspecialchars($challenge['explanation']) ?>
         </div>
       </div>
 
@@ -88,4 +120,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 </main>
 
-<?php require_once __DIR__ . '/../views/footer.php'; ?>
+<?php require_once __DIR__ . '/../../views/footer.php'; ?>
