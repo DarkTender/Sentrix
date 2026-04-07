@@ -16,34 +16,46 @@ $challenges = $challengeModel->getAll();
 
 <main class="ix-container">
 
-<h1 class="ix-title">Challenges</h1>
+<h1 class="ix-title">⚡ Challenge Labs</h1>
 
 <div class="challenge-filter">
-  <button onclick="filterChallenges('all')">All</button>
-  <button onclick="filterChallenges('easy')">Easy</button>
-  <button onclick="filterChallenges('intermediate')">Intermediate</button>
-  <button onclick="filterChallenges('hard')">Hard</button>
+  <button class="active" onclick="filterChallenges('all', this)">All</button>
+  <button onclick="filterChallenges('easy', this)">Easy</button>
+  <button onclick="filterChallenges('intermediate', this)">Intermediate</button>
+  <button onclick="filterChallenges('hard', this)">Hard</button>
 </div>
 
 <div class="challenge-grid">
 
 <?php foreach ($challenges as $c): 
   $difficulty = strtolower($c['difficulty'] ?? 'easy');
+  $points = $c['points'] ?? 10;
+
+  $status = rand(0,1) ? "solved" : "new";
 ?>
-  <div class="challenge-card" data-difficulty="<?= $difficulty ?>">
+
+  <div class="challenge-card <?= $status ?>" data-difficulty="<?= $difficulty ?>">
 
     <div class="challenge-header">
       <h3><?= $c['title'] ?></h3>
       <span class="badge <?= $difficulty ?>"><?= ucfirst($difficulty) ?></span>
     </div>
 
-    <p class="challenge-type">[<?= $c['type'] ?>]</p>
+    <div class="challenge-meta">
+      <span class="type"><?= strtoupper($c['type']) ?></span>
+      <span class="points">+<?= $points ?> XP</span>
+    </div>
+
+    <div class="challenge-status <?= $status ?>">
+      <?= $status === 'solved' ? '✔ Solved' : '⚡ New' ?>
+    </div>
 
     <a href="challenge.php?id=<?= $c['id'] ?>" class="challenge-btn">
-      Start →
+      Enter Lab →
     </a>
 
   </div>
+
 <?php endforeach; ?>
 
 </div>
@@ -51,7 +63,8 @@ $challenges = $challengeModel->getAll();
 </main>
 
 <script>
-function filterChallenges(level) {
+function filterChallenges(level, btn) {
+
   document.querySelectorAll('.challenge-card').forEach(card => {
     if (level === 'all' || card.dataset.difficulty === level) {
       card.style.display = 'block';
@@ -59,6 +72,9 @@ function filterChallenges(level) {
       card.style.display = 'none';
     }
   });
+
+  document.querySelectorAll('.challenge-filter button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
 }
 </script>
 
