@@ -100,3 +100,123 @@ input:focus {
   padding: 30px;
   width: 100%;
 }
+.layout {
+  display: flex;
+}
+
+.sidebar {
+  width: 240px;
+  height: 100vh;
+  background: linear-gradient(180deg,#020617,#020617ee);
+  border-right: 1px solid rgba(255,255,255,0.05);
+  padding: 20px;
+  position: fixed;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: #22c55e;
+  margin-bottom: 30px;
+  text-shadow: 0 0 10px #22c55e88;
+}
+
+.nav a {
+  display: block;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  color: #94a3b8;
+  transition: 0.3s;
+}
+
+.nav a:hover {
+  background: linear-gradient(135deg,#22c55e22,#06b6d422);
+  color: white;
+  box-shadow: 0 0 10px #22c55e44;
+}
+
+.nav a.active {
+  background: linear-gradient(135deg,#22c55e,#06b6d4);
+  color: black;
+}
+
+.content {
+  margin-left: 260px;
+  padding: 30px;
+  width: 100%;
+}
+
+.card {
+  background: rgba(15,23,42,0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 1px;
+  background: linear-gradient(120deg,#22c55e,#06b6d4,#a855f7);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 30px #22c55e33;
+}
+
+.pulse {
+  width: 10px;
+  height: 10px;
+  background: #22c55e;
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 #22c55e88; }
+  70% { box-shadow: 0 0 0 10px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 20px;
+}
+
+.progress-bar {
+  background: #020617;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.progress-fill {
+  height: 12px;
+  background: linear-gradient(90deg,#22c55e,#06b6d4);
+  box-shadow: 0 0 10px #22c55e;
+}
+
+.badges {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  padding: 6px 12px;
+  border-radius: 10px;
+  background: linear-gradient(135deg,#06b6d4,#22c55e);
+  color: black;
+  font-size: 13px;
+}
