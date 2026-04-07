@@ -1,0 +1,261 @@
+/* =========================
+   COMMUNITY PAGE (SENTRIX)
+   isolated styles only
+   ========================= */
+
+   :root{
+    --cm-bg: rgba(6, 10, 18, 0.80);
+    --cm-border: rgba(56, 189, 248, 0.16);
+    --cm-text-soft: rgba(226, 232, 240, 0.78);
+    --cm-shadow: 0 22px 80px rgba(0, 0, 0, 0.55);
+  
+    --cm-cyan: #38bdf8;
+    --cm-purple: #a855f7;
+    --cm-green: #22c55e;
+    --cm-red: #ef4444;
+  }
+  
+  .cm-surface{
+    background: var(--cm-bg);
+    border: 1px solid var(--cm-border);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow: var(--cm-shadow);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .cm-surface::before{
+    content:"";
+    position:absolute;
+    inset:-2px;
+    background:
+      radial-gradient(circle at 15% 18%, rgba(56,189,248,.14), transparent 46%),
+      radial-gradient(circle at 84% 22%, rgba(168,85,247,.12), transparent 44%),
+      radial-gradient(circle at 34% 92%, rgba(34,197,94,.10), transparent 52%),
+      linear-gradient(180deg, rgba(0,0,0,.28), rgba(0,0,0,.48));
+    pointer-events:none;
+    z-index:0;
+  }
+  
+  .cm-surface::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background: repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,.035),
+      rgba(255,255,255,.035) 1px,
+      transparent 1px,
+      transparent 6px
+    );
+    opacity:.10;
+    mix-blend-mode: overlay;
+    pointer-events:none;
+    z-index:0;
+  }
+  
+  .cm-surface > *{ position:relative; z-index:1; }
+  
+  .cm-title{ letter-spacing:.02em; }
+  
+  .cm-kicker{ display:flex; flex-wrap:wrap; gap:.5rem; }
+  
+  .cm-pill{
+    display:inline-flex;
+    align-items:center;
+    gap:.5rem;
+    padding:.35rem .85rem;
+    border-radius:999px;
+    font-size:.82rem;
+    color:#e0f9ff;
+    border:1px solid rgba(148,163,184,.22);
+    background: rgba(2,6,23,.62);
+  }
+  
+  .cm-pill-muted{ opacity:.88; }
+  
+  .cm-pill-accent{
+    border-color: rgba(56,189,248,.55);
+    background: rgba(56,189,248,.12);
+    box-shadow: 0 0 26px rgba(56,189,248,.14);
+  }
+  
+  .cm-box{
+    background: rgba(2,6,23,.68);
+    border: 1px solid rgba(56,189,248,.18);
+    box-shadow: 0 14px 55px rgba(0,0,0,.40);
+  }
+  
+  .cm-mini-list{
+    list-style:none;
+    padding:0;
+    margin:0;
+    color: var(--cm-text-soft);
+    display:grid;
+    gap:.55rem;
+    font-size:.95rem;
+  }
+  .cm-mini-list li{ display:flex; align-items:center; gap:.6rem; }
+  .cm-mini-list i{ color: rgba(56,189,248,.95); }
+  
+  .cm-card{
+    background: rgba(2,6,23,.72);
+    border: 1px solid rgba(56,189,248,.14);
+    border-radius: 26px;
+    transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+  }
+  .cm-card:hover{
+    transform: translateY(-5px);
+    border-color: rgba(56,189,248,.36);
+    box-shadow: 0 26px 85px rgba(0,0,0,.55);
+  }
+  
+  .cm-card-top{ display:flex; gap:.9rem; align-items:flex-start; }
+  
+  .cm-ico{
+    width: 48px;
+    height: 48px;
+    border-radius: 16px;
+    display:grid;
+    place-items:center;
+    background: rgba(2,6,23,.70);
+    border: 1px solid rgba(56,189,248,.18);
+    box-shadow: 0 0 22px rgba(56,189,248,.10);
+    flex:0 0 auto;
+    font-size: 1.15rem;
+  }
+  
+  .cm-ico-cyan i{ color: var(--cm-cyan); }
+  .cm-ico-purple i{ color: var(--cm-purple); }
+  .cm-ico-green i{ color: var(--cm-green); }
+  
+  .cm-steps{ display:grid; gap: .85rem; }
+  
+  .cm-step{
+    display:flex;
+    gap: .9rem;
+    align-items:flex-start;
+    padding: 1rem;
+    border-radius: 18px;
+    background: rgba(2,6,23,.68);
+    border: 1px solid rgba(56,189,248,.14);
+  }
+  
+  .cm-step-num{
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    display:grid;
+    place-items:center;
+    font-weight: 900;
+    color: #e0f9ff;
+    background: rgba(56,189,248,.10);
+    border: 1px solid rgba(56,189,248,.22);
+  }
+  
+  .cm-step-title{
+    color:#fff;
+    font-weight: 900;
+    letter-spacing: .01em;
+    margin-bottom: .15rem;
+  }
+  
+  .cm-step-desc{ color: var(--cm-text-soft); font-size: .95rem; }
+  
+  .cm-banlist{
+    list-style:none;
+    padding:0;
+    margin:0;
+    display:grid;
+    gap: .7rem;
+    color: var(--cm-text-soft);
+    font-size: 1rem;
+  }
+  .cm-banlist li{ display:flex; gap: .7rem; align-items:center; }
+  .cm-banlist i{ color: rgba(239,68,68,.90); }
+  
+  .cm-note{
+    background: rgba(2,6,23,.68);
+    border: 1px solid rgba(56,189,248,.14);
+    border-radius: 18px;
+    padding: 1rem;
+  }
+  .cm-note-title{ font-weight: 900; color: #fff; margin-bottom: .25rem; }
+  .cm-note-body{ color: var(--cm-text-soft); font-size: .95rem; }
+  
+  /* Chat UI */
+  .cm-chat{
+    background: rgba(2,6,23,.72);
+    border: 1px solid rgba(56,189,248,.14);
+    border-radius: 26px;
+  }
+  .cm-chat-header{
+    display:flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: baseline;
+    margin-bottom: 1rem;
+  }
+  .cm-chat-title{
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: .01em;
+  }
+  .cm-chat-meta{ color: var(--cm-text-soft); font-size: .9rem; }
+  
+  .cm-chat-feed{
+    height: 320px;
+    overflow: auto;
+    padding: 1rem;
+    border-radius: 18px;
+    background: rgba(2,6,23,.70);
+    border: 1px solid rgba(56,189,248,.12);
+  }
+  
+  .cm-msg{ padding: .75rem .85rem; border-radius: 16px; border: 1px solid rgba(148,163,184,.14); background: rgba(0,0,0,.18); }
+  .cm-msg + .cm-msg{ margin-top: .75rem; }
+  .cm-msg-user{ color: rgba(56,189,248,.95); font-weight: 800; margin-bottom: .25rem; }
+  .cm-msg-text{ color: rgba(226,232,240,.88); }
+  
+  .cm-msg-system{
+    border-color: rgba(56,189,248,.22);
+    background: rgba(56,189,248,.06);
+  }
+  .cm-msg-system .cm-msg-user{ color: rgba(226,232,240,.90); }
+  
+  .cm-chat-input{
+    display:flex;
+    gap: .75rem;
+    margin-top: 1rem;
+  }
+  
+  .cm-input{
+    background: rgba(2,6,23,.66) !important;
+    border: 1px solid rgba(56,189,248,.18) !important;
+    color: rgba(226,232,240,.92) !important;
+  }
+  
+  /* lists + panels */
+  .cm-panel{
+    background: rgba(2,6,23,.72);
+    border: 1px solid rgba(56,189,248,.14);
+  }
+  .cm-panel-ok{ border-color: rgba(34,197,94,.20); }
+  .cm-panel-ban{ border-color: rgba(239,68,68,.20); }
+  
+  .cm-list{ color: var(--cm-text-soft); }
+  .cm-list li{ margin-bottom: .5rem; }
+  
+  .cm-ol{ color: var(--cm-text-soft); }
+  .cm-ol li{ margin-bottom: .5rem; }
+  
+  .cm-join{
+    background: linear-gradient(135deg, rgba(2, 6, 23, 0.78), rgba(56, 189, 248, 0.08));
+    border-color: rgba(56, 189, 248, 0.22);
+  }
+  
+  .cm-cta{
+    background: linear-gradient(135deg, rgba(2, 6, 23, 0.78), rgba(56, 189, 248, 0.08));
+    border-color: rgba(56, 189, 248, 0.22);
+  }
