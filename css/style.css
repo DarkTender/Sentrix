@@ -644,3 +644,22 @@ body {
     0 0 20px rgba(34,197,94,0.2),
     0 0 40px rgba(34,197,94,0.1);
 }
+.filter-btn {
+  padding: 8px 15px;
+  border-radius: 10px;
+  background: #020617;
+  color: #94a3b8;
+  text-decoration: none;
+  margin-right: 10px;
+  transition: 0.3s;
+}
+
+.filter-btn:hover {
+  color: #22c55e;
+  box-shadow: 0 0 10px #22c55e55;
+}
+
+.filter-btn.active {
+  color: #22c55e;
+  background: rgba(34,197,94,0.2);
+}

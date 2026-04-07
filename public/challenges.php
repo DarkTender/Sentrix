@@ -11,7 +11,14 @@ $db = new Database();
 $conn = $db->connect();
 
 $challengeModel = new Challenge($conn);
-$challenges = $challengeModel->getAll();
+
+$difficulty = $_GET['difficulty'] ?? 'all';
+
+if ($difficulty === 'all') {
+    $challenges = $challengeModel->getAll();
+} else {
+    $challenges = $challengeModel->getByDifficulty($difficulty);
+}
 ?>
 
 <main class="ix-container">
@@ -19,18 +26,18 @@ $challenges = $challengeModel->getAll();
 <h1 class="ix-title">⚡ Challenge Labs</h1>
 
 <div class="challenge-filter">
-  <button class="active" onclick="filterChallenges('all', this)">All</button>
-  <button onclick="filterChallenges('easy', this)">Easy</button>
-  <button onclick="filterChallenges('intermediate', this)">Intermediate</button>
-  <button onclick="filterChallenges('hard', this)">Hard</button>
+
+  <a href="?difficulty=all" class="filter-btn <?= $difficulty=='all'?'active':'' ?>">All</a>
+  <a href="?difficulty=easy" class="filter-btn <?= $difficulty=='easy'?'active':'' ?>">Easy</a>
+  <a href="?difficulty=intermediate" class="filter-btn <?= $difficulty=='intermediate'?'active':'' ?>">Intermediate</a>
+  <a href="?difficulty=hard" class="filter-btn <?= $difficulty=='hard'?'active':'' ?>">Hard</a>
+
 </div>
 
 <div class="challenge-grid">
 
 <?php foreach ($challenges as $c): 
-  $difficulty = strtolower($c['difficulty'] ?? 'easy');
-  $points = $c['points'] ?? 10;
-
+  $cardDifficulty = strtolower($c['difficulty'] ?? 'easy');  $points = $c['points'] ?? 10;
   $status = rand(0,1) ? "solved" : "new";
 ?>
 
@@ -50,7 +57,7 @@ $challenges = $challengeModel->getAll();
       <?= $status === 'solved' ? '✔ Solved' : '⚡ New' ?>
     </div>
 
-    <a href="challenge.php?id=<?= $c['id'] ?>" class="challenge-btn">
+    <a href="quest/challenge.php?id=<?= $c['id'] ?>" class="challenge-btn">
       Enter Lab →
     </a>
 
