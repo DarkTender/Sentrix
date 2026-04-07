@@ -14,13 +14,52 @@ $challengeModel = new Challenge($conn);
 $challenges = $challengeModel->getAll();
 ?>
 
-<h1>Challenges</h1>
+<main class="ix-container">
 
-<?php foreach ($challenges as $c): ?>
-  <div class="card">
-    <h3><?= $c['title'] ?></h3>
-    <p style="color:#06b6d4;">[<?= $c['type'] ?>]</p>
-    <a href="challenge.php?id=<?= $c['id'] ?>">Open →</a>
+<h1 class="ix-title">Challenges</h1>
+
+<div class="challenge-filter">
+  <button onclick="filterChallenges('all')">All</button>
+  <button onclick="filterChallenges('easy')">Easy</button>
+  <button onclick="filterChallenges('intermediate')">Intermediate</button>
+  <button onclick="filterChallenges('hard')">Hard</button>
+</div>
+
+<div class="challenge-grid">
+
+<?php foreach ($challenges as $c): 
+  $difficulty = strtolower($c['difficulty'] ?? 'easy');
+?>
+  <div class="challenge-card" data-difficulty="<?= $difficulty ?>">
+
+    <div class="challenge-header">
+      <h3><?= $c['title'] ?></h3>
+      <span class="badge <?= $difficulty ?>"><?= ucfirst($difficulty) ?></span>
+    </div>
+
+    <p class="challenge-type">[<?= $c['type'] ?>]</p>
+
+    <a href="challenge.php?id=<?= $c['id'] ?>" class="challenge-btn">
+      Start →
+    </a>
+
   </div>
 <?php endforeach; ?>
+
+</div>
+
+</main>
+
+<script>
+function filterChallenges(level) {
+  document.querySelectorAll('.challenge-card').forEach(card => {
+    if (level === 'all' || card.dataset.difficulty === level) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+</script>
+
 <?php require_once __DIR__ . '/../views/footer.php'; ?>
