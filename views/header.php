@@ -1,30 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="../css/style.css">
+  <meta charset="UTF-8">
+  <title>SENTRIX</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/sentrix/css/style.css">
 </head>
+
 <body>
 
-<div style="display:flex;">
+<nav class="nav">
 
-  <!-- SIDEBAR -->
-  <div style="
-    width:240px;
-    height:100vh;
-    background:#020617;
-    border-right:1px solid #1e293b;
-    padding:20px;
-    position:fixed;
-  ">
-
-    <h2 style="color:#22c55e;">SENTRIX</h2>
-
-    <a href="index.php">Dashboard</a><br>
-    <a href="challenges.php">Challenges</a><br>
-    <a href="leaderboard.php">Leaderboard</a><br>
-    <a href="logout.php">Logout</a>
-
+  <div class="nav-left">
+    <span class="logo">SENTRIX</span>
   </div>
 
-  <!-- CONTENT -->
-  <div style="margin-left:260px; padding:30px; width:100%;">
+  <div class="nav-center">
+    <a href="index.php" class="nav-link active">Dashboard</a>
+    <a href="challenges.php" class="nav-link">Challenges</a>
+    <a href="leaderboard.php" class="nav-link">Leaderboard</a>
+    <a href="profile.php" class="nav-link">Profile</a>
+  </div>
+
+  <div class="nav-right">
+    <a href="logout.php" class="nav-link logout">Logout</a>
+  </div>
+
+</nav>
+
+<div class="content">
