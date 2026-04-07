@@ -18,7 +18,6 @@ $challenges = $challengeModel->getAll();
 
 <h1 class="ix-title">Challenges</h1>
 
-<!-- FILTER -->
 <div class="challenge-filter">
   <button onclick="filterChallenges('all')">All</button>
   <button onclick="filterChallenges('easy')">Easy</button>
@@ -26,7 +25,6 @@ $challenges = $challengeModel->getAll();
   <button onclick="filterChallenges('hard')">Hard</button>
 </div>
 
-<!-- GRID -->
 <div class="challenge-grid">
 
 <?php foreach ($challenges as $c): 
