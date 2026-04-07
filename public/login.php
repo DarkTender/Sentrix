@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once __DIR__ . '/../views/header.php';
 
 
@@ -24,26 +25,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-
-<link rel="stylesheet" href="../css/style.css">
-
-<div style="height:100vh; display:flex; justify-content:center; align-items:center;">
-
-  <div class="card" style="width:350px; text-align:center;">
-
-    <h2 style="margin-bottom:20px;">SENTRIX LAB</h2>
-
-    <?php if (!empty($error)): ?>
-      <p style="color:red;"><?= $error ?></p>
-    <?php endif; ?>
-
-    <form method="POST">
-      <input type="text" name="username" placeholder="Username">
-      <input type="password" name="password" placeholder="Password">
-      <button type="submit">Login</button>
+<form method="POST">
+  <input type="text" name="username" placeholder="Username" required>
+  <input type="password" name="password" placeholder="Password" required>
+  <button type="submit">Login</button>
+</form>
     </form>
 
   </div>
 
 </div>
+
 <?php require_once __DIR__ . '/../views/footer.php'; ?>
