@@ -1,7 +1,7 @@
 <?php
+session_start();
 require_once __DIR__ . '/../views/header.php';
 
-session_start();
 
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../app/core/Database.php';
@@ -17,13 +17,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($user && password_verify($_POST['password'], $user['password'])) {
         $_SESSION['user_id'] = $user['id'];
-        echo "✅ Logged in!";
+        header("Location: index.php");
+        exit;
     } else {
-        echo "❌ Wrong credentials";
+        $error = "Wrong credentials";
     }
-}
-if (isset($_SESSION['user_id'])) {
-    echo "<br>Logged user ID: " . $_SESSION['user_id'];
 }
 ?>
 
@@ -32,4 +30,10 @@ if (isset($_SESSION['user_id'])) {
   <input type="password" name="password" placeholder="Password" required>
   <button type="submit">Login</button>
 </form>
+    </form>
+
+  </div>
+
+</div>
+
 <?php require_once __DIR__ . '/../views/footer.php'; ?>

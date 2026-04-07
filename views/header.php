@@ -3,9 +3,14 @@
 <head>
   <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
 
-<div class="layout">
+<nav class="nav">
+
+  <div class="nav-left">
+    <span class="logo">SENTRIX</span>
+  </div>
 
   <div class="sidebar">
 
@@ -25,4 +30,6 @@
 
   </div>
 
-  <div class="content">
+</nav>
+
+<div class="content">

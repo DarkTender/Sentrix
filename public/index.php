@@ -1,6 +1,4 @@
 <?php
-require_once __DIR__ . '/../views/header.php';
-
 session_start();
 
 require_once __DIR__ . '/../config.php';
@@ -70,7 +68,95 @@ require_once __DIR__ . '/../views/header.php';
 </div>
 
 <?php require_once __DIR__ . '/../views/footer.php'; ?>
-=======
 echo "✅ Connected to database!";
 ?>
+
+<main class="ix-container">
+
+  <section class="ix-hero ix-card">
+    <div class="ix-hero-grid">
+
+      <div>
+        <h1 class="ix-title">
+          Welcome back, <?= htmlspecialchars($user['username']) ?>
+        </h1>
+
+        <p class="ix-muted">
+          SENTRIX control panel — monitor your progress & evolve your skills.
+        </p>
+
+        <div class="ix-pills">
+          <span class="ix-pill">Score: <?= $score ?></span>
+          <span class="ix-pill ix-pill-muted">Level: <?= $level ?></span>
+        </div>
+      </div>
+
+      <div class="ix-terminal">
+<pre>[USER] <?= $user['username'] ?>
+
+[SCORE] <?= $score ?>
+[LEVEL] <?= $level ?>
+
+[SYSTEM] ONLINE
+[STATUS] ACTIVE</pre>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="ix-grid">
+
+    <div class="ix-card ix-center">
+      <h3>Score</h3>
+      <div class="ix-big"><?= $score ?></div>
+    </div>
+
+    <div class="ix-card ix-center">
+      <h3>Level</h3>
+      <div class="ix-big"><?= $level ?></div>
+    </div>
+
+    <div class="ix-card ix-center">
+      <h3>Badges</h3>
+      <div>
+        <?php foreach ($badges as $b): ?>
+          <span class="ix-tag"><?= $b ?></span>
+        <?php endforeach; ?>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="ix-card">
+    <h3>Progress</h3>
+
+    <div class="ix-progress">
+      <div class="ix-progress-bar" style="width: <?= min(100, $score) ?>%;"></div>
+    </div>
+  </section>
+
+  <section class="ix-grid">
+
+    <a href="challenges.php" class="ix-link">
+      <div class="ix-card">
+        <h4>Challenges</h4>
+      </div>
+    </a>
+
+    <a href="leaderboard.php" class="ix-link">
+      <div class="ix-card">
+        <h4>Leaderboard</h4>
+      </div>
+    </a>
+
+    <a href="profile.php" class="ix-link">
+      <div class="ix-card">
+        <h4>Profile</h4>
+      </div>
+    </a>
+
+  </section>
+
+</main>
+
 <?php require_once __DIR__ . '/../views/footer.php'; ?>
