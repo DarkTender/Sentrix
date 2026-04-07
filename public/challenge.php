@@ -45,8 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<h1><?= $challenge['title'] ?></h1>
-<p><?= $challenge['description'] ?></p>
+<div class="card" style="max-width:600px;">
 
 <form method="POST">
   <input type="text" name="answer" placeholder="Your payload">
