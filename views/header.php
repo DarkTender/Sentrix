@@ -6,7 +6,7 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="/css/style.css?v=5">
+  <link rel="stylesheet" href="/sentrix/css/style.css?v=99">
 </head>
 
 <body>
