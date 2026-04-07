@@ -13,15 +13,29 @@ $conn = $db->connect();
 $userModel = new User($conn);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $user = $userModel->findByUsername($_POST['username']);
 
-    if ($user && password_verify($_POST['password'], $user['password'])) {
-        $_SESSION['user_id'] = $user['id'];
-        header("Location: index.php");
-        exit;
-    } else {
-        $error = "Wrong credentials";
-    }
+  if ($_POST['action'] === 'login') {
+
+      $user = $userModel->findByUsername($_POST['username']);
+
+      if ($user && password_verify($_POST['password'], $user['password'])) {
+          $_SESSION['user_id'] = $user['id'];
+          header("Location: index.php");
+          exit;
+      } else {
+          $error = "Wrong credentials";
+      }
+
+  } elseif ($_POST['action'] === 'register') {
+
+      $username = $_POST['username'];
+      $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+      $stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
+      $stmt->execute([$username, $password]);
+
+      $error = "Account created! You can login now.";
+  }
 }
 ?>
 
@@ -29,14 +43,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   <div class="login-card">
 
+    <div class="auth-switch">
+      <button id="loginTab" class="active" onclick="switchAuth('login')">Login</button>
+      <button id="registerTab" onclick="switchAuth('register')">Register</button>
+    </div>
+
     <h1 class="login-logo">SENTRIX</h1>
-    <p class="login-sub">Cybersecurity Lab Access</p>
 
     <?php if (!empty($error)): ?>
       <div class="login-error"><?= $error ?></div>
     <?php endif; ?>
 
-    <form method="POST">
+    <form method="POST" id="loginForm" class="auth-form">
+
+      <input type="hidden" name="action" value="login">
 
       <div class="input-group">
         <input type="text" name="username" required>
@@ -48,10 +68,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <label>Password</label>
       </div>
 
-      <button type="submit" class="login-btn">ACCESS SYSTEM</button>
+      <button type="submit" class="login-btn">LOGIN</button>
+
+    </form>
+
+    <form method="POST" id="registerForm" class="auth-form hidden">
+
+      <input type="hidden" name="action" value="register">
+
+      <div class="input-group">
+        <input type="text" name="username" required>
+        <label>Username</label>
+      </div>
+
+      <div class="input-group">
+        <input type="password" name="password" required>
+        <label>Password</label>
+      </div>
+
+      <button type="submit" class="login-btn">REGISTER</button>
 
     </form>
 
   </div>
+
+</div>
 
 <?php require_once __DIR__ . '/../views/footer.php'; ?>

@@ -29,5 +29,26 @@
   </div>
 
 </nav>
+<div id="register-panel" class="register-panel">
+
+  <form method="POST" class="register-form">
+
+    <h3>Create Account</h3>
+
+    <div class="input-group">
+      <input type="text" name="username" required>
+      <label>Username</label>
+    </div>
+
+    <div class="input-group">
+      <input type="password" name="password" required>
+      <label>Password</label>
+    </div>
+
+    <button type="submit" class="register-btn">Register</button>
+
+  </form>
+
+</div>
 
 <div class="content">

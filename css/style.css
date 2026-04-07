@@ -505,3 +505,94 @@ body {
   font-weight: normal;
   color: #cbd5f5;
 }
+.register-toggle {
+  background: transparent;
+  border: 1px solid #22c55e;
+  color: #22c55e;
+  padding: 8px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.register-toggle:hover {
+  box-shadow: 0 0 10px #22c55e;
+}
+
+.register-panel {
+  position: absolute;
+  top: 70px;
+  right: 30px;
+
+  width: 300px;
+  padding: 20px;
+
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(34,197,94,0.3);
+  border-radius: 15px;
+
+  backdrop-filter: blur(10px);
+
+  display: none;
+
+  box-shadow:
+    0 0 20px rgba(34,197,94,0.2);
+}
+
+.register-panel.active {
+  display: block;
+}
+
+.register-form h3 {
+  margin-bottom: 15px;
+  color: #22c55e;
+}
+
+.register-form .input-group input {
+  width: 100%;
+}
+
+.register-btn {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+
+  background: linear-gradient(90deg,#22c55e,#06b6d4);
+  color: black;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.register-btn:hover {
+  box-shadow:
+    0 0 10px #22c55e,
+    0 0 20px #22c55e;
+}
+.auth-switch {
+  display: flex;
+  margin-bottom: 20px;
+  background: #020617;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.auth-switch button {
+  flex: 1;
+  padding: 10px;
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.auth-switch button.active {
+  background: rgba(34,197,94,0.2);
+  color: #22c55e;
+}
+
+.hidden {
+  display: none;
+}
