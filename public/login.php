@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__ . '/../views/header.php';
 
-session_start();
 
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../app/core/Database.php';
@@ -25,14 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<<<<<<< Updated upstream
-<form method="POST">
-  <input type="text" name="username" placeholder="Username" required>
-  <input type="password" name="password" placeholder="Password" required>
-  <button type="submit">Login</button>
-</form>
-<<<<<<< HEAD
-=======
+
 <link rel="stylesheet" href="../css/style.css">
 
 <div style="height:100vh; display:flex; justify-content:center; align-items:center;">
@@ -54,7 +46,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   </div>
 
 </div>
->>>>>>> Stashed changes
-=======
 <?php require_once __DIR__ . '/../views/footer.php'; ?>
->>>>>>> 6a82f1afd6b2c5ebfc9af859ce7f6beb1a70c4dc

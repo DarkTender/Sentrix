@@ -1,6 +1,4 @@
 <?php
-require_once __DIR__ . '/../views/header.php';
-
 session_start();
 
 require_once __DIR__ . '/../config.php';
@@ -12,22 +10,16 @@ Auth::check();
 $db = new Database();
 $conn = $db->connect();
 
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-echo "✅ Connected to database!";
-=======
 $stmt = $conn->prepare("SELECT username, score FROM users WHERE id = ?");
 $stmt->execute([$_SESSION['user_id']]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 $score = $user['score'];
 
-// LEVEL
 if ($score < 20) $level = "Beginner";
 elseif ($score < 50) $level = "Intermediate";
 else $level = "Advanced";
 
-// BADGES
 $badges = [];
 if ($score >= 10) $badges[] = "SQLi Rookie";
 if ($score >= 30) $badges[] = "XSS Hunter";
@@ -36,72 +28,118 @@ if ($score >= 60) $badges[] = "Cyber Warrior";
 require_once __DIR__ . '/../views/header.php';
 ?>
 
-<h1 style="margin-bottom:20px;">Dashboard</h1>
+<main class="container py-5">
 
-<!-- GRID -->
-<div style="display:grid; grid-template-columns: repeat(3,1fr); gap:20px; margin-bottom:20px;">
+  <section class="ix-hero ix-surface rounded-5 p-4 p-lg-5 mb-5 shadow-lg">
 
-  <!-- USER CARD -->
-  <div class="card">
-    <h3 style="color:#94a3b8;">User</h3>
-    <h2><?= htmlspecialchars($user['username']) ?></h2>
-  </div>
+    <div class="row align-items-center">
+      <div class="col-lg-7">
 
-  <!-- SCORE CARD -->
-  <div class="card">
-    <h3 style="color:#94a3b8;">Score</h3>
-    <h2 style="color:#22c55e;"><?= $score ?></h2>
-  </div>
+        <h1 class="display-5 fw-bold text-light mb-2">
+          Welcome back, <?= htmlspecialchars($user['username']) ?>
+        </h1>
 
-  <!-- LEVEL CARD -->
-  <div class="card">
-    <h3 style="color:#94a3b8;">Level</h3>
-    <h2 style="color:#06b6d4;"><?= $level ?></h2>
-  </div>
+        <p class="text-light-emphasis">
+          SENTRIX control panel — monitor your progress, complete challenges and evolve your skills.
+        </p>
 
-</div>
+        <div class="d-flex flex-wrap gap-2 mt-3">
+          <span class="ix-pill">Score: <?= $score ?></span>
+          <span class="ix-pill ix-pill-muted">Level: <?= $level ?></span>
+        </div>
 
-<!-- PROGRESS -->
-<div class="card" style="margin-bottom:20px;">
-  <h3 style="margin-bottom:10px;">Progress</h3>
+      </div>
 
-  <div style="background:#020617; border-radius:10px; overflow:hidden;">
-    <div style="
-      width: <?= min(100, $score) ?>%;
-      background: linear-gradient(90deg,#22c55e,#06b6d4);
-      padding: 10px;
-    ">
+      <div class="col-lg-5">
+        <div class="ix-terminal rounded-4 p-4">
+
+<pre class="ix-code mb-0"><code>[USER] <?= $user['username'] ?>
+
+[SCORE] <?= $score ?>
+[LEVEL] <?= $level ?>
+
+[SYSTEM] ONLINE
+[STATUS] ACTIVE
+</code></pre>
+
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-<!-- BADGES -->
-<div class="card">
-  <h3 style="margin-bottom:10px;">Badges</h3>
+  </section>
 
-  <?php if (empty($badges)): ?>
-    <p style="color:#94a3b8;">No badges yet</p>
-  <?php else: ?>
-    <div style="display:flex; gap:10px; flex-wrap:wrap;">
-      <?php foreach ($badges as $b): ?>
-        <span style="
-          padding:6px 12px;
-          border-radius:8px;
-          background:linear-gradient(135deg,#06b6d4,#22c55e);
-          color:black;
-          font-size:14px;
-        ">
-          <?= $b ?>
-        </span>
-      <?php endforeach; ?>
+  <section class="mb-5">
+    <div class="row g-4">
+
+      <div class="col-lg-4">
+        <div class="ix-card ix-surface rounded-5 p-4 text-center">
+          <h3 class="text-info">Score</h3>
+          <div class="display-6 fw-bold"><?= $score ?></div>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="ix-card ix-surface rounded-5 p-4 text-center">
+          <h3 class="text-success">Level</h3>
+          <div class="display-6 fw-bold"><?= $level ?></div>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="ix-card ix-surface rounded-5 p-4 text-center">
+          <h3 class="text-warning">Badges</h3>
+          <div>
+            <?php foreach ($badges as $b): ?>
+              <span class="ix-tag"><?= $b ?></span>
+            <?php endforeach; ?>
+          </div>
+        </div>
+      </div>
+
     </div>
-  <?php endif; ?>
-</div>
+  </section>
+
+  <section class="mb-5">
+    <div class="ix-surface rounded-5 p-4 shadow-lg">
+      <h3 class="text-light mb-3">Progress</h3>
+
+      <div style="background:#020617; border-radius:10px; overflow:hidden;">
+        <div style="
+          width: <?= min(100, $score) ?>%;
+          background: linear-gradient(90deg,#22c55e,#06b6d4);
+          padding: 10px;
+        "></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="row g-4">
+
+      <div class="col-lg-4">
+        <a href="challenges.php" class="ix-link-card ix-surface rounded-5 p-4 d-block text-decoration-none">
+          <h4 class="text-light">Challenges</h4>
+          <p class="text-light-emphasis small">Solve labs and gain points.</p>
+        </a>
+      </div>
+
+      <div class="col-lg-4">
+        <a href="leaderboard.php" class="ix-link-card ix-surface rounded-5 p-4 d-block text-decoration-none">
+          <h4 class="text-light">Leaderboard</h4>
+          <p class="text-light-emphasis small">Compare your progress.</p>
+        </a>
+      </div>
+
+      <div class="col-lg-4">
+        <a href="profile.php" class="ix-link-card ix-surface rounded-5 p-4 d-block text-decoration-none">
+          <h4 class="text-light">Profile</h4>
+          <p class="text-light-emphasis small">Manage your account.</p>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+</main>
 
 <?php require_once __DIR__ . '/../views/footer.php'; ?>
->>>>>>> Stashed changes
-=======
-echo "✅ Connected to database!";
-?>
-<?php require_once __DIR__ . '/../views/footer.php'; ?>
->>>>>>> 6a82f1afd6b2c5ebfc9af859ce7f6beb1a70c4dc
