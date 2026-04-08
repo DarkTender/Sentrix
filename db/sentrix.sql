@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hostiteľ: 127.0.0.1
--- Čas generovania: St 08.Apr 2026, 09:20
+-- Čas generovania: St 08.Apr 2026, 09:44
 -- Verzia serveru: 10.4.32-MariaDB
 -- Verzia PHP: 8.2.12
 
@@ -72,7 +72,8 @@ INSERT INTO `submissions` (`id`, `user_id`, `challenge_id`, `answer`, `is_correc
 (1, 1, 1, '', 0, '2026-04-08 07:16:13'),
 (2, 1, 1, '', 0, '2026-04-08 07:16:24'),
 (3, 1, 3, 'admin123', 1, '2026-04-08 07:18:29'),
-(4, 1, 3, 'admin123', 1, '2026-04-08 07:19:20');
+(4, 1, 3, 'admin123', 1, '2026-04-08 07:19:20'),
+(5, 2, 2, 'password', 1, '2026-04-08 07:44:04');
 
 -- --------------------------------------------------------
 
@@ -85,15 +86,17 @@ CREATE TABLE `users` (
   `username` varchar(50) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `score` int(11) DEFAULT 0,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `role` varchar(20) DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Sťahujem dáta pre tabuľku `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `score`, `created_at`) VALUES
-(1, 'admin', '$2y$10$CeltFuDFQ8P0mRloC4ICzuV6Vj8rHrtF7SRLUyoQOVW49AXgE7Ek6', 10, '2026-04-08 07:15:49');
+INSERT INTO `users` (`id`, `username`, `password`, `score`, `created_at`, `role`) VALUES
+(1, 'admin', '$2y$10$CeltFuDFQ8P0mRloC4ICzuV6Vj8rHrtF7SRLUyoQOVW49AXgE7Ek6', 10, '2026-04-08 07:15:49', 'admin'),
+(2, 'user', '$2y$10$erTJxfOFRnYJXJe25tQnyeSVZdQHwEM8E8ki3g1UoapTRDdNy3z9a', 15, '2026-04-08 07:43:32', 'user');
 
 --
 -- Kľúče pre exportované tabuľky
@@ -134,13 +137,13 @@ ALTER TABLE `challenges`
 -- AUTO_INCREMENT pre tabuľku `submissions`
 --
 ALTER TABLE `submissions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pre tabuľku `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Obmedzenie pre exportované tabuľky
