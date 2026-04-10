@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../app/core/Database.php';
 
@@ -42,7 +41,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<?php require_once __DIR__ . '/../views/header.php'; ?>
+<?php 
+  $isAdminPage = true;
+  require_once __DIR__ . '/../views/header.php'; 
+?>
 
 <main class="ix-container">
 
