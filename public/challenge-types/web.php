@@ -1,26 +1,33 @@
 <?php require_once __DIR__ . '/../../views/header.php'; ?>
+<?php 
+if (isset($_GET['source'])) {
+    highlight_file(__FILE__);
+}
+if (isset($_GET['source'])) {
+    $file = "challenges/challenge" . $_GET['id'] . ".php";
 
+    if (file_exists($file)) {
+        highlight_file($file);
+        exit;
+    }
+}
+?>
 <main class="challenge-container">
 
   <div class="challenge-box">
 
-    <!-- HEADER -->
     <h1 class="challenge-title">🕵️ Hidden Source Lab</h1>
 
     <p class="challenge-desc">
       Pozri source stránky a nájdi skryté heslo.
     </p>
 
-    <!-- FAKE CONTENT -->
     <div class="terminal-input" style="margin-bottom:15px;">
       <span class="prompt">system:</span>
       <span>Welcome to secure panel...</span>
     </div>
 
-    <!-- 🔥 HIDDEN PASSWORD -->
-    <!-- PASSWORD: admin123 -->
-
-    <!-- FORM -->
+    <!-- dev_note: try ?debug -->
     <form method="POST" class="challenge-form">
 
       <div class="terminal-input">
@@ -39,7 +46,7 @@
 
         $userAnswer = trim($_POST['answer']);
 
-        if ($userAnswer === "admin123") {
+        if ($userAnswer === "WerZ23...12poREtzuF") {
             $result = "correct";
         } else {
             $result = "wrong";
@@ -47,7 +54,6 @@
     }
     ?>
 
-    <!-- RESULT -->
     <?php if ($result === "correct"): ?>
       <div class="result success">
         ✅ ACCESS GRANTED  
@@ -56,13 +62,12 @@
       </div>
     <?php elseif ($result === "wrong"): ?>
       <div class="result error">
-        ❌ WRONG PASSWORD
+        ❌ ACCESS DENIED"
       </div>
     <?php endif; ?>
 
-    <!-- HINT -->
     <div style="margin-top:20px; color:#64748b;">
-      💡 Hint: Pravé tlačidlo → View Page Source
+    💡What's wrong with these words?? - ASSWORD IDDEN IN P................
     </div>
 
   </div>

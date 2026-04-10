@@ -30,6 +30,8 @@ if ($difficulty === 'all') {
   <a href="?difficulty=easy" class="filter-btn <?= $difficulty=='easy'?'active':'' ?>">Easy</a>
   <a href="?difficulty=intermediate" class="filter-btn <?= $difficulty=='intermediate'?'active':'' ?>">Intermediate</a>
   <a href="?difficulty=hard" class="filter-btn <?= $difficulty=='hard'?'active':'' ?>">Hard</a>
+  <a href="?difficulty=extreme" class="filter-btn <?= $difficulty=='extreme'?'active':'' ?>">Extreme</a>
+
 </div>
 
 <div class="challenge-grid">

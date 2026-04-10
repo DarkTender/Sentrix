@@ -395,6 +395,10 @@ body {
   background: #ef4444;
   color: white;
 }
+.badge.extreme {
+  background: #5500b6;
+  color: white;
+}
 .challenge-container {
   display: flex;
   justify-content: center;

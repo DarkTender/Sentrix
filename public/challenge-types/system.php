@@ -10,7 +10,6 @@
       Získaj obsah <code>/etc/passwd</code> pomocou inputu.
     </p>
 
-    <!-- FORM -->
     <form method="GET">
 
     <input type="hidden" name="id" value="<?= htmlspecialchars($challenge['id']) ?>">
@@ -33,7 +32,6 @@
 
         echo "<div class='result' style='margin-top:15px; font-family:monospace;'>";
 
-        // 🔥 simulácia LFI
         if (strpos($file, "etc/passwd") !== false) {
 
             echo "root:x:0:0:root:/root:/bin/bash<br>";
@@ -51,7 +49,6 @@
     }
     ?>
 
-    <!-- HINT -->
     <div style="margin-top:20px; color:#64748b;">
       💡 Hint: Skús použiť <code>../../../../etc/passwd</code>
     </div>

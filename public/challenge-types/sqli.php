@@ -17,13 +17,6 @@
         <input type="text" name="answer" placeholder="admin">
       </div>
 
-      
-      
-      <!-- HINT<div class="terminal-input">
-        <span class="prompt">password:</span>
-        <input type="password" name="answer" placeholder="*****">
-      </div>-->
-
       <button type="submit" class="challenge-submit">LOGIN</button>
 
     </form>
@@ -56,7 +49,8 @@
     <?php endif; ?>
 
     <div style="margin-top:20px; color:#64748b;">
-      💡 Hint: Skús použiť ' OR 1=1 -- '
+      💡 Hint: Skús použiť čiarka | ALEBO | prvé číslo má rovnaký vzťah s čislom menčím ako dva ale väčšie ako nula| dva rovné pruhy | a čiarkou na konci 
+        <br>* (|) znamená medzeru !!!
     </div>
 
   </div>
