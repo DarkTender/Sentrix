@@ -150,20 +150,6 @@ INSERT INTO `users` (`id`, `username`, `password`, `score`, `created_at`, `role`
 --
 
 --
--- Indexy pre tabuľku `challenges`
---
-ALTER TABLE `challenges`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexy pre tabuľku `submissions`
---
-ALTER TABLE `submissions`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`user_id`),
-  ADD KEY `challenge_id` (`challenge_id`);
-
---
 -- Indexy pre tabuľku `users`
 --
 ALTER TABLE `users`
@@ -191,17 +177,6 @@ ALTER TABLE `submissions`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- Obmedzenie pre exportované tabuľky
---
-
---
--- Obmedzenie pre tabuľku `submissions`
---
-ALTER TABLE `submissions`
-  ADD CONSTRAINT `submissions_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
-  ADD CONSTRAINT `submissions_ibfk_2` FOREIGN KEY (`challenge_id`) REFERENCES `challenges` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
