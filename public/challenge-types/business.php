@@ -38,7 +38,8 @@
             $price = $price - 10;
         }
 
-        if ($price <= 0) {
+        if ($price < 0) {
+          $userAnswer = "LOGIC_BYPASS";
             echo "✅ Purchase successful<br>";
             echo "FLAG{LOGIC_BROKEN}";
         } else {
