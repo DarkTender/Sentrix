@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../app/core/Database.php';
 
@@ -42,37 +41,59 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<?php require_once __DIR__ . '/../views/header.php'; ?>
+<?php 
+  $isAdminPage = true;
+  require_once __DIR__ . '/../views/header.php'; 
+?>
 
-<main class="ix-container">
+<div class="admin-wrapper">
 
-<h1 class="ix-title">🛠 Admin Panel</h1>
+  <div class="sidebar">
+    <h2>⚡ Sentrix</h2>
+    <a href="#">Dashboard</a>
+    <a href="#">Challenges</a>
+    <a href="#">Users</a>
+  </div>
 
-<?php if (!empty($success)): ?>
-  <div class="result success"><?= $success ?></div>
-<?php endif; ?>
+  <div class="content">
 
-<form method="POST" class="ix-card">
+    <div class="header-bar">
+      <h1>🛠 Admin Panel</h1>
+    </div>
 
-  <input type="text" name="title" placeholder="Title" required>
-  <textarea name="description" placeholder="Description"></textarea>
+    <?php if (!empty($success)): ?>
+      <div class="success-box"><?= $success ?></div>
+    <?php endif; ?>
 
-  <input type="text" name="type" placeholder="sqli / xss / crypto" required>
+    <div class="card">
 
-  <select name="difficulty">
-    <option>easy</option>
-    <option>intermediate</option>
-    <option>hard</option>
-  </select>
+      <form method="POST">
 
-  <input type="number" name="points" placeholder="Points">
+        <input type="text" name="title" placeholder="Title" required>
+        <textarea name="description" placeholder="Description"></textarea>
 
-  <input type="text" name="answer" placeholder="Correct answer">
-  <textarea name="explanation" placeholder="Explanation"></textarea>
+        <input type="text" name="type" placeholder="sqli / xss / crypto" required>
 
-  <button class="challenge-submit">CREATE</button>
+        <select name="difficulty">
+          <option>easy</option>
+          <option>intermediate</option>
+          <option>hard</option>
+        </select>
 
-</form>
+        <input type="number" name="points" placeholder="Points">
+
+        <input type="text" name="answer" placeholder="Correct answer">
+        <textarea name="explanation" placeholder="Explanation"></textarea>
+
+        <button class="btn">CREATE</button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
 
 </main>
 
