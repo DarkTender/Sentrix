@@ -10,7 +10,7 @@
       Získaj obsah <code>/etc/passwd</code> pomocou inputu.
     </p>
 
-    <form method="GET">
+    <form method="POST">
 
     <input type="hidden" name="id" value="<?= htmlspecialchars($challenge['id']) ?>">
 
@@ -26,9 +26,9 @@
     <?php
     $result = null;
 
-    if (isset($_GET['file'])) {
+    if (isset($_POST['file'])) {
 
-        $file = $_GET['file'];
+        $file = $_POST['file'];
 
         echo "<div class='result' style='margin-top:15px; font-family:monospace;'>";
 
