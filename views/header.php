@@ -18,10 +18,11 @@
   </div>
 
   <div class="nav-center">
+    <a href="/Sentrix/public/admin.php" class="nav-link">Admin</a>
+    <a href="/Sentrix/public/user.php" class="nav-link" >Profile</a>
     <a href="/Sentrix/public/index.php" class="nav-link active">Dashboard</a>
     <a href="/Sentrix/public/challenges.php" class="nav-link">Challenges</a>
     <a href="/Sentrix/public/leaderboard.php" class="nav-link">Leaderboard</a>
-    <a href="/Sentrix/public/profile.php" class="nav-link">Profile</a>
   </div>
 
   <div class="nav-right">
