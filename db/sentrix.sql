@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hostiteľ: 127.0.0.1
--- Čas generovania: St 08.Apr 2026, 09:44
+-- Čas generovania: So 11.Apr 2026, 00:08
 -- Verzia serveru: 10.4.32-MariaDB
 -- Verzia PHP: 8.2.12
 
@@ -44,10 +44,11 @@ CREATE TABLE `challenges` (
 --
 
 INSERT INTO `challenges` (`id`, `title`, `description`, `type`, `difficulty`, `points`, `correct_answer`, `explanation`, `created_at`) VALUES
-(1, 'SQL Injection Login', 'Obíď login pomocou SQL injection.', 'sqli', 'intermediate', 15, '\' OR 1=1 --', 'SQL injection bypass', '2026-04-08 07:13:26'),
-(2, 'MD5 Crack', 'Crackni hash: 5f4dcc3b5aa765d61d8327deb882cf99', 'crypto', 'easy', 15, 'password', 'MD5 hash', '2026-04-08 07:13:26'),
-(3, 'Hidden Password', 'Pozri source stránky a nájdi heslo.', 'web', 'easy', 10, 'admin123', 'HTML source', '2026-04-08 07:13:26'),
-(4, 'LFI Exploit', 'Získaj obsah /etc/passwd pomocou inputu.', 'system', 'hard', 20, 'etc/passwd', 'Path traversal', '2026-04-08 07:13:26');
+(1, 'SQL Injection Login', 'Obíď login pomocou SQL injection.', 'sqli', 'intermediate', 15, '\' OR 1=1 -- \'', 'SQL injection bypass', '2026-04-08 07:13:26'),
+(2, 'MD5 Crack', 'Crackni hash: 5f4dcc3b5aa765d61d8327deb882cf99', 'crypto', 'easy', 5, 'password', 'MD5 hash', '2026-04-08 07:13:26'),
+(3, 'Hidden Password', 'Pozri source stránky a nájdi heslo.', 'web', 'extreme', 50, 'WerZ23...12poREtzuF', 'HTML source', '2026-04-08 07:13:26'),
+(4, 'LFI Exploit', 'Získaj obsah /etc/passwd pomocou inputu.', 'system', 'hard', 20, 'etc/passwd', 'Path traversal', '2026-04-08 07:13:26'),
+(5, 'Unlimited Discount', 'Tento e-shop umožňuje použiť zľavový kód.\nSkús získať produkt zadarmo.', 'bussiness', 'intermediate', 10, 'price = -100', 'business logic vulnerability', '2026-04-10 20:46:07');
 
 -- --------------------------------------------------------
 
@@ -73,7 +74,53 @@ INSERT INTO `submissions` (`id`, `user_id`, `challenge_id`, `answer`, `is_correc
 (2, 1, 1, '', 0, '2026-04-08 07:16:24'),
 (3, 1, 3, 'admin123', 1, '2026-04-08 07:18:29'),
 (4, 1, 3, 'admin123', 1, '2026-04-08 07:19:20'),
-(5, 2, 2, 'password', 1, '2026-04-08 07:44:04');
+(5, 2, 2, 'password', 1, '2026-04-08 07:44:04'),
+(6, 1, 3, 'admin123', 1, '2026-04-10 19:38:35'),
+(7, 1, 2, 'password', 1, '2026-04-10 19:38:48'),
+(8, 1, 1, '', 0, '2026-04-10 19:39:20'),
+(9, 1, 1, '', 0, '2026-04-10 19:39:36'),
+(10, 1, 1, '', 0, '2026-04-10 19:39:46'),
+(11, 1, 1, '', 0, '2026-04-10 19:39:55'),
+(12, 1, 1, '', 0, '2026-04-10 19:40:26'),
+(13, 1, 1, '', 0, '2026-04-10 19:42:48'),
+(14, 1, 1, '', 0, '2026-04-10 19:42:50'),
+(15, 1, 1, '', 0, '2026-04-10 19:42:50'),
+(16, 1, 1, '\' OR 1=1 -- \'', 1, '2026-04-10 19:43:14'),
+(17, 1, 1, 'YOU HACKED', 0, '2026-04-10 19:43:27'),
+(18, 1, 1, 'admin', 0, '2026-04-10 19:43:35'),
+(19, 1, 1, 'admin', 0, '2026-04-10 19:45:22'),
+(20, 1, 1, '\' OR 1=1 -- \'', 1, '2026-04-10 19:45:29'),
+(21, 1, 1, '\' OR 1=1 -- \'', 1, '2026-04-10 19:55:36'),
+(22, 1, 1, '', 0, '2026-04-10 19:55:42'),
+(23, 1, 1, '', 0, '2026-04-10 19:55:56'),
+(24, 1, 1, '', 0, '2026-04-10 19:56:42'),
+(25, 1, 1, '', 0, '2026-04-10 19:57:09'),
+(26, 1, 1, '\' OR 1=1 -- \'', 1, '2026-04-10 19:57:15'),
+(27, 1, 5, '', 0, '2026-04-10 20:47:59'),
+(28, 1, 5, '', 0, '2026-04-10 20:48:56'),
+(29, 1, 5, '', 0, '2026-04-10 20:49:02'),
+(30, 1, 5, '', 0, '2026-04-10 20:49:10'),
+(31, 1, 5, '', 0, '2026-04-10 20:49:32'),
+(32, 1, 5, '', 0, '2026-04-10 20:50:43'),
+(33, 1, 5, '0', 0, '2026-04-10 20:51:57'),
+(34, 1, 5, '0', 0, '2026-04-10 20:53:44'),
+(35, 1, 5, '0', 0, '2026-04-10 20:54:03'),
+(36, 1, 5, '', 0, '2026-04-10 20:54:30'),
+(37, 1, 5, '', 0, '2026-04-10 20:54:40'),
+(38, 1, 5, '', 0, '2026-04-10 20:56:05'),
+(39, 1, 5, '', 0, '2026-04-10 20:56:20'),
+(40, 1, 5, '100', 0, '2026-04-10 20:58:31'),
+(41, 1, 5, '0', 0, '2026-04-10 20:58:48'),
+(42, 1, 3, 'password123', 0, '2026-04-10 20:59:29'),
+(43, 1, 3, 'password123', 0, '2026-04-10 20:59:35'),
+(44, 1, 3, 'admin123', 1, '2026-04-10 20:59:42'),
+(45, 1, 5, '100', 0, '2026-04-10 21:08:49'),
+(46, 1, 1, '\' OR 1=1 -- \'', 1, '2026-04-10 21:39:05'),
+(47, 1, 1, '\' OR 1=1 -- \'', 1, '2026-04-10 21:39:23'),
+(48, 1, 1, '\' OR 1=1 -- \'', 1, '2026-04-10 21:39:34'),
+(49, 1, 3, 'admin123', 0, '2026-04-10 22:00:01'),
+(50, 1, 3, 'WerZ23...12poREtzuF', 1, '2026-04-10 22:00:31'),
+(51, 1, 3, 'WerZ23...12poREtzuF', 1, '2026-04-10 22:01:02');
 
 -- --------------------------------------------------------
 
@@ -95,8 +142,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `score`, `created_at`, `role`) VALUES
-(1, 'admin', '$2y$10$CeltFuDFQ8P0mRloC4ICzuV6Vj8rHrtF7SRLUyoQOVW49AXgE7Ek6', 10, '2026-04-08 07:15:49', 'admin'),
-(2, 'user', '$2y$10$erTJxfOFRnYJXJe25tQnyeSVZdQHwEM8E8ki3g1UoapTRDdNy3z9a', 15, '2026-04-08 07:43:32', 'user');
+(1, 'admin', '$2y$10$CeltFuDFQ8P0mRloC4ICzuV6Vj8rHrtF7SRLUyoQOVW49AXgE7Ek6', 0, '2026-04-08 07:15:49', 'admin'),
+(2, 'user', '$2y$10$erTJxfOFRnYJXJe25tQnyeSVZdQHwEM8E8ki3g1UoapTRDdNy3z9a', 0, '2026-04-08 07:43:32', 'user');
 
 --
 -- Kľúče pre exportované tabuľky
@@ -131,13 +178,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pre tabuľku `challenges`
 --
 ALTER TABLE `challenges`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pre tabuľku `submissions`
 --
 ALTER TABLE `submissions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT pre tabuľku `users`
