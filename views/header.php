@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="/sentrix/css/style.css?v=99">
 
   <?php if (isset($isAdminPage) && $isAdminPage === true): ?>
-    <link rel="stylesheet" href="Sentrix/css/admin.css?v=99">
+    <link rel="stylesheet" href="/sentrix/css/admin.css?v=99">
   <?php endif; ?>
 
 </head>
