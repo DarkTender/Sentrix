@@ -11,55 +11,63 @@ $db = new Database();
 $conn = $db->connect();
 
 $challengeModel = new Challenge($conn);
-$challenges = $challengeModel->getAll();
+
+$difficulty = $_GET['difficulty'] ?? 'all';
+
+if ($difficulty === 'all') {
+    $challenges = $challengeModel->getAll();
+} else {
+    $challenges = $challengeModel->getByDifficulty($difficulty);
+}
 ?>
 
 <main class="ix-container">
 
-<h1 class="ix-title">Challenges</h1>
+<h1 class="ix-title">⚡ Challenge Labs</h1>
 
 <div class="challenge-filter">
-  <button onclick="filterChallenges('all')">All</button>
-  <button onclick="filterChallenges('easy')">Easy</button>
-  <button onclick="filterChallenges('intermediate')">Intermediate</button>
-  <button onclick="filterChallenges('hard')">Hard</button>
+  <a href="?difficulty=all" class="filter-btn <?= $difficulty=='all'?'active':'' ?>">All</a>
+  <a href="?difficulty=easy" class="filter-btn <?= $difficulty=='easy'?'active':'' ?>">Easy</a>
+  <a href="?difficulty=intermediate" class="filter-btn <?= $difficulty=='intermediate'?'active':'' ?>">Intermediate</a>
+  <a href="?difficulty=hard" class="filter-btn <?= $difficulty=='hard'?'active':'' ?>">Hard</a>
 </div>
 
 <div class="challenge-grid">
 
 <?php foreach ($challenges as $c): 
-  $difficulty = strtolower($c['difficulty'] ?? 'easy');
+  $cardDifficulty = strtolower($c['difficulty'] ?? 'easy');
+  $points = $c['points'] ?? 10;
+  $status = rand(0,1) ? "solved" : "new";
 ?>
-  <div class="challenge-card" data-difficulty="<?= $difficulty ?>">
+
+  <div class="challenge-card <?= $status ?>">
 
     <div class="challenge-header">
-      <h3><?= $c['title'] ?></h3>
-      <span class="badge <?= $difficulty ?>"><?= ucfirst($difficulty) ?></span>
+      <h3><?= htmlspecialchars($c['title']) ?></h3>
+      <span class="badge <?= $cardDifficulty ?>">
+        <?= ucfirst($cardDifficulty) ?>
+      </span>
     </div>
 
-    <p class="challenge-type">[<?= $c['type'] ?>]</p>
+    <div class="challenge-meta">
+      <span class="type"><?= strtoupper($c['type']) ?></span>
+      <span class="points">+<?= $points ?> XP</span>
+    </div>
 
-    <a href="challenge.php?id=<?= $c['id'] ?>" class="challenge-btn">
-      Start →
+    <div class="challenge-status <?= $status ?>">
+      <?= $status === 'solved' ? '✔ Solved' : '⚡ New' ?>
+    </div>
+
+    <a href="/Sentrix/public/challenge.php?id=<?= $c['id'] ?>" class="challenge-btn">
+      Enter Lab →
     </a>
 
   </div>
+
 <?php endforeach; ?>
 
 </div>
 
 </main>
-
-<script>
-function filterChallenges(level) {
-  document.querySelectorAll('.challenge-card').forEach(card => {
-    if (level === 'all' || card.dataset.difficulty === level) {
-      card.style.display = 'block';
-    } else {
-      card.style.display = 'none';
-    }
-  });
-}
-</script>
 
 <?php require_once __DIR__ . '/../views/footer.php'; ?>

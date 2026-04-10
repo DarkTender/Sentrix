@@ -18,4 +18,9 @@ class Challenge {
         $stmt->execute([$id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+    public function getByDifficulty($difficulty) {
+        $stmt = $this->conn->prepare("SELECT * FROM challenges WHERE difficulty = ?");
+        $stmt->execute([$difficulty]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
