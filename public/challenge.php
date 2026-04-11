@@ -31,19 +31,25 @@ if (!$challenge) {
 
 $result = null;
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' || $_SERVER['REQUEST_METHOD'] === 'GET') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' || isset($_GET['token'])) {
 
     $userAnswer = trim($_POST['answer'] ?? $_POST['file'] ?? $_GET['file'] ?? '');
-    // 💣 BUSINESS LOGIC FIX
-    if ($challenge['type'] === 'bussiness') {
-        $price = $_POST['answer'] ?? 0;
 
-        if ($price < 0) {
-            $userAnswer = "LOGIC_BYPASS";
+    if ($challenge['type'] === 'web' && isset($_GET['token'])) {
+
+        $parts = explode('.', $_GET['token']);
+
+        if (count($parts) === 3) {
+            $payload = json_decode(base64_decode($parts[1]), true);
+
+            if (isset($payload['role']) && $payload['role'] === 'admin') {
+                $userAnswer = "FLAG{JWT_HACKED}";
+            }
         }
     }
+
     if (
-       $userAnswer === trim($challenge['correct_answer']) ||
+        $userAnswer === trim($challenge['correct_answer']) ||
         strpos($userAnswer, $challenge['correct_answer']) !== false
     ) {
 
@@ -88,12 +94,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' || $_SERVER['REQUEST_METHOD'] === 'GET
         $result = "wrong";
     }
 }
-?>
 
-
-<?php 
 $type = strtolower(trim($challenge['type'] ?? 'flag'));
-
 $file = __DIR__ . '/challenge-types/' . $type . '.php';
 
 if (!file_exists($file)) {
@@ -102,5 +104,5 @@ if (!file_exists($file)) {
 }
 
 require $file;
-exit;?>
-
+exit;
+?>
