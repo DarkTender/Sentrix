@@ -69,9 +69,6 @@ CREATE TABLE `submissions` (
 -- Sťahujem dáta pre tabuľku `submissions`
 --
 
-INSERT INTO `submissions` (`id`, `user_id`, `challenge_id`, `answer`, `is_correct`, `created_at`) VALUES
-
-
 -- --------------------------------------------------------
 
 --
