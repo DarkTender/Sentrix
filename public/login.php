@@ -18,8 +18,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $user = $userModel->findByUsername($_POST['username']);
 
       if ($user && password_verify($_POST['password'], $user['password'])) {
-          $_SESSION['user_id'] = $user['id'];
-          header("Location: index.php");
+          $_SESSION['user'] = [
+            'id' => $user['id'],
+            'username' => $user['username'],
+            'role' => $user['role']
+          ];
+      
+          header("Location: dashboard.php");
           exit;
       } else {
           $error = "Wrong credentials";

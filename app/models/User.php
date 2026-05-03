@@ -1,4 +1,3 @@
-session_start();
 <?php
 
 class User {

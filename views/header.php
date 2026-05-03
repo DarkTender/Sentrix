@@ -23,8 +23,8 @@
   </div>
 
   <div class="nav-center">
-    <a href="/Sentrix/public/user.php" class="nav-link active" >Profile</a>
-    <a href="/Sentrix/public/index.php" class="nav-link">Dashboard</a>
+    <a href="/Sentrix/public/index.php" class="nav-link active" >Profile</a>
+    <a href="/Sentrix/public/dashboard.php" class="nav-link">Dashboard</a>
     <a href="/Sentrix/public/challenges.php" class="nav-link">Challenges</a>
     <a href="/Sentrix/public/leaderboard.php" class="nav-link">Leaderboard</a>
   </div>
