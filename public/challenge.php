@@ -58,14 +58,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' || isset($_GET['token'])) {
 
         $check = $conn->prepare("
             SELECT id FROM submissions 
-            WHERE user_id = ? AND challenge_id = ? AND is_correct = 1
+            WHERE user = ? AND challenge_id = ? AND is_correct = 1
         ");
         $check->execute([$userId, $challenge['id']]);
 
         if ($check->rowCount() == 0) {
 
             $stmt = $conn->prepare("
-                INSERT INTO submissions (user_id, challenge_id, answer, is_correct) 
+                INSERT INTO submissions (user, challenge_id, answer, is_correct) 
                 VALUES (?, ?, ?, 1)
             ");
             $stmt->execute([$userId, $challenge['id'], $userAnswer]);
@@ -81,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' || isset($_GET['token'])) {
     } else {
 
         $stmt = $conn->prepare("
-            INSERT INTO submissions (user_id, challenge_id, answer, is_correct) 
+            INSERT INTO submissions (user, challenge_id, answer, is_correct) 
             VALUES (?, ?, ?, 0)
         ");
         $stmt->execute([$userId, $challenge['id'], $userAnswer]);
