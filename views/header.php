@@ -30,7 +30,7 @@
   </div>
 
   <div class="nav-right">
-    <a href="logout.php" class="nav-link logout">Logout</a>
+    <a href="/Sentrix/public/logout.php" class="nav-link logout">Logout</a>
   </div>
 
 </nav>

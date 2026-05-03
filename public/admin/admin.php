@@ -7,7 +7,7 @@ $db = new Database();
 $conn = $db->connect();
 
 if (!isset($_SESSION['user'])) {
-    header("Location: login.php");
+    header("Location: ../login.php");
     exit;
 }
 
@@ -41,6 +41,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
+<link rel="stylesheet" href="/Sentrix/css/admin_challenges.css">
+
 <?php 
   $isAdminPage = true;
   require_once __DIR__ . '/../../views/header.php'; 
@@ -48,12 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <div class="admin-wrapper">
 
-  <div class="sidebar">
-    <h2>⚡ Sentrix</h2>
-    <a href="#">Dashboard</a>
-    <a href="#">Challenges</a>
-    <a href="#">Users</a>
-  </div>
+    <?php require_once __DIR__ . '/../../views/admin_sidebar.php'; ?>
 
   <div class="content">
 
@@ -69,23 +66,46 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
       <form method="POST">
 
-        <input type="text" name="title" placeholder="Title" required>
-        <textarea name="description" placeholder="Description"></textarea>
+        <div>
+          <div class="label">Title</div>
+          <input type="text" name="title" placeholder="SQL Injection Login" required>
+        </div>
 
-        <input type="text" name="type" placeholder="sqli / xss / crypto" required>
+        <div>
+          <div class="label">Type</div>
+          <input type="text" name="type" placeholder="sqli / xss / crypto" required>
+        </div>
 
-        <select name="difficulty">
-          <option>easy</option>
-          <option>intermediate</option>
-          <option>hard</option>
-        </select>
+        <div style="grid-column:1/-1;">
+          <div class="label">Description</div>
+          <textarea name="description" placeholder="Describe the challenge..."></textarea>
+        </div>
 
-        <input type="number" name="points" placeholder="Points">
+        <div>
+          <div class="label">Difficulty</div>
+          <select name="difficulty">
+            <option>easy</option>
+            <option>intermediate</option>
+            <option>hard</option>
+          </select>
+        </div>
 
-        <input type="text" name="answer" placeholder="Correct answer">
-        <textarea name="explanation" placeholder="Explanation"></textarea>
+        <div>
+          <div class="label">Points</div>
+          <input type="number" name="points" placeholder="10">
+        </div>
 
-        <button class="btn">CREATE</button>
+        <div>
+          <div class="label">Correct Answer</div>
+          <input type="text" name="answer" placeholder="flag{...}">
+        </div>
+
+        <div>
+          <div class="label">Explanation</div>
+          <textarea name="explanation" placeholder="Explain solution..."></textarea>
+        </div>
+
+        <button class="btn">🚀 Create Challenge</button>
 
       </form>
 
