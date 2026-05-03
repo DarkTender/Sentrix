@@ -11,7 +11,7 @@ $db = new Database();
 $conn = $db->connect();
 
 $stmt = $conn->prepare("SELECT username, score FROM users WHERE id = ?");
-$stmt->execute([$_SESSION['user_id']]);
+$stmt->execute([$_SESSION['user']['id']]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 $score = $user['score'];
@@ -24,6 +24,7 @@ $badges = [];
 if ($score >= 10) $badges[] = "SQLi Rookie";
 if ($score >= 30) $badges[] = "XSS Hunter";
 if ($score >= 60) $badges[] = "Cyber Warrior";
+if ($score >= 100) $badges[] = "Ethical Hacker";
 
 require_once __DIR__ . '/../views/header.php';
 ?>
@@ -88,7 +89,7 @@ require_once __DIR__ . '/../views/header.php';
     <h3>Progress</h3>
 
     <div class="ix-progress">
-      <div class="ix-progress-bar" style="width: <?= min(100, $score) ?>%;"></div>
+      <div class="ix-progress-bar" style="width: <?= min(110, $score) ?>%;"></div>
     </div>
   </section>
 

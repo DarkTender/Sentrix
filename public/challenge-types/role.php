@@ -19,5 +19,9 @@ if ($_COOKIE['role'] === "admin") {
     echo "<p>Access denied. Admins only.</p>";
 }
 ?>
+<form method="POST">
+    <input type="hidden" name="answer" value="flag{cookie_tampering_success}">
+    <button type="submit">Claim Flag</button>
+</form>
 
 <?php require_once __DIR__ . '/../../views/footer.php'; ?>

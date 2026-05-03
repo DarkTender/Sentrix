@@ -6,13 +6,13 @@ require_once __DIR__ . '/../../app/core/Database.php';
 $db = new Database();
 $conn = $db->connect();
 
-if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['user'])) {
     header("Location: login.php");
     exit;
 }
 
 $stmt = $conn->prepare("SELECT role FROM users WHERE id = ?");
-$stmt->execute([$_SESSION['user_id']]);
+$stmt->execute([$_SESSION['user']['id']]);
 $user = $stmt->fetch();
 
 if ($user['role'] !== 'admin') {

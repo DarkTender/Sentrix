@@ -5,16 +5,16 @@ require_once '../app/core/Auth.php';
 
 Auth::check();
 
-$user = $_SESSION['user']; 
-
-if (!$user) {
+if (!isset($_SESSION['user'])) {
     header("Location: login.php");
     exit;
 }
 
+$user = $_SESSION['user'];
+
 if ($user['role'] === 'admin') {
-    header("Location: admin/admin.php"); 
+    header("Location: /Sentrix/public/admin/admin.php");
     exit;
 } else {
-    include '/user/user_dashboard.php';
+    include 'user/user_dashboard.php';
 }

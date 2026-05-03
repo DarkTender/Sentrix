@@ -1,6 +1,5 @@
 <?php
 session_start();
-require_once __DIR__ . '/../views/header.php';
 
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../app/core/Database.php';
@@ -13,7 +12,7 @@ $userModel = new User($conn);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-  if ($_POST['action'] === 'login') {
+  if (isset($_POST['action']) && $_POST['action'] === 'login') {
 
       $user = $userModel->findByUsername($_POST['username']);
 
@@ -30,17 +29,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           $error = "Wrong credentials";
       }
 
-  } elseif ($_POST['action'] === 'register') {
+  } elseif (isset($_POST['action']) && $_POST['action'] === 'register') {
 
       $username = $_POST['username'];
       $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-      $stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
-      $stmt->execute([$username, $password]);
+      $stmt = $conn->prepare("INSERT INTO users (username, password, role) VALUES (?, ?, ?)");
+      $stmt->execute([$username, $password, 'user']);
 
       $error = "Account created! You can login now.";
   }
 }
+
+require_once __DIR__ . '/../views/header.php';
 ?>
 
 <div class="login-wrapper">
