@@ -1,4 +1,4 @@
-<?php
+<?php 
 session_start();
 
 require_once '../app/core/Auth.php';
@@ -16,5 +16,6 @@ if ($user['role'] === 'admin') {
     header("Location: /Sentrix/public/admin/admin.php");
     exit;
 } else {
-    include 'user/user_dashboard.php';
+    header("Location: /Sentrix/public/user/user.php");
+    exit;
 }

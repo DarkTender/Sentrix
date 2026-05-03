@@ -1,12 +1,14 @@
 <?php
+session_start();
 require_once __DIR__ . '/../views/header.php';
 
-session_start();
 
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../app/core/Database.php';
 require_once __DIR__ . '/../app/models/Challenge.php';
+require_once __DIR__ . '/../app/core/Auth.php';
 
+Auth::check();
 $db = new Database();
 $conn = $db->connect();
 

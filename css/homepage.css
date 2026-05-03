@@ -1,0 +1,98 @@
+body {
+    background: radial-gradient(circle at 20% 20%, #0ea5e922, transparent),
+                radial-gradient(circle at 80% 80%, #22c55e11, transparent),
+                #020617;
+    color: #e2e8f0;
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, #38bdf833, transparent 70%);
+    top: -200px;
+    left: -200px;
+    filter: blur(80px);
+    animation: float 8s infinite alternate ease-in-out;
+}
+
+@keyframes float {
+    from { transform: translate(0,0); }
+    to { transform: translate(100px, 100px); }
+}
+
+.hero {
+    padding: 100px 20px;
+}
+
+.hero h1 {
+    font-size: 60px;
+    letter-spacing: 3px;
+}
+
+.hero p {
+    margin-top: 10px;
+    color: #94a3b8;
+    font-size: 18px;
+}
+
+.hero-buttons {
+    margin-top: 30px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+    padding: 12px 25px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    margin-right: 10px;
+    transition: 0.2s;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #38bdf8aa;
+}
+
+.btn-secondary {
+    border: 1px solid #38bdf8;
+    padding: 12px 25px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #38bdf8;
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 60px 20px;
+}
+
+.feature-card {
+    background: rgba(30,41,59,0.7);
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    border-radius: 14px;
+    width: 250px;
+    border: 1px solid #0f172a;
+    transition: 0.2s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px #38bdf822;
+}
+
+.cta {
+    padding: 60px 20px;
+}
+
+.cta h2 {
+    margin-bottom: 20px;
+}
