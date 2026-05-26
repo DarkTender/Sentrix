@@ -41,7 +41,6 @@ if ($difficulty === 'all') {
 <?php foreach ($challenges as $c): 
   $cardDifficulty = strtolower($c['difficulty'] ?? 'easy');
   $points = $c['points'] ?? 10;
-  $status = rand(0,1) ? "solved" : "new";
 ?>
 
   <div class="challenge-card <?= $status ?>">
@@ -56,10 +55,6 @@ if ($difficulty === 'all') {
     <div class="challenge-meta">
       <span class="type"><?= strtoupper($c['type']) ?></span>
       <span class="points">+<?= $points ?> XP</span>
-    </div>
-
-    <div class="challenge-status <?= $status ?>">
-      <?= $status === 'solved' ? '✔ Solved' : '⚡ New' ?>
     </div>
 
     <a href="/Sentrix/public/challenge.php?id=<?= $c['id'] ?>" class="challenge-btn">

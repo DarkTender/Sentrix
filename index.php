@@ -13,7 +13,7 @@ require_once __DIR__ . '/views/header.php';
     <p>Master Cybersecurity Through Real Exploitation Labs</p>
 
     <div class="hero-buttons">
-      <a href="public/login.php" class="btn-primary">🚀 Start Training</a>
+      <a href="public/challenges.php" class="btn-primary">🚀 Start Training</a>
       <a href="public/login.php" class="btn-secondary">Create Account</a>
     </div>
   </section>
