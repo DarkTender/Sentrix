@@ -1,0 +1,143 @@
+body {
+    background: #0a0a0a;
+    color: white;
+}
+
+.leaderboard-container {
+    width: 95%;
+    max-width: 1100px;
+    margin: 50px auto;
+}
+
+.leaderboard-header {
+    margin-bottom: 30px;
+}
+
+.leaderboard-header h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+    color: #00ff88;
+}
+
+.leaderboard-header p {
+    color: #777;
+    font-size: 16px;
+}
+
+.leaderboard-card {
+    background: #111;
+    border: 1px solid #1f1f1f;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 40px rgba(0,255,136,0.05);
+}
+
+.leaderboard-user {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 22px 25px;
+
+    border-bottom: 1px solid #1c1c1c;
+
+    transition: 0.2s;
+}
+
+.leaderboard-user:hover {
+    background: #151515;
+    transform: scale(1.01);
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.rank {
+    width: 60px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #666;
+}
+
+.avatar {
+    width: 55px;
+    height: 55px;
+
+    border-radius: 50%;
+
+    background: linear-gradient(135deg, #00ff88, #00bfff);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: bold;
+    font-size: 22px;
+
+    color: black;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.username {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.subtitle {
+    color: #666;
+    font-size: 13px;
+    margin-top: 3px;
+}
+
+.score {
+    font-size: 20px;
+    font-weight: bold;
+    color: #00ff88;
+}
+
+
+.gold {
+    background: rgba(255,215,0,0.08);
+}
+
+.silver {
+    background: rgba(192,192,192,0.06);
+}
+
+.bronze {
+    background: rgba(205,127,50,0.06);
+}
+
+.gold .rank {
+    color: gold;
+}
+
+.silver .rank {
+    color: silver;
+}
+
+.bronze .rank {
+    color: #cd7f32;
+}
+
+
+@media(max-width:700px) {
+
+    .leaderboard-user {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .score {
+        margin-left: 78px;
+    }
+
+}
