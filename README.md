@@ -1,143 +1,496 @@
-# ⚡ SENTRIX
+```
+ ███████╗███████╗███╗   ██╗████████╗██████╗ ██╗██╗  ██╗
+ ██╔════╝██╔════╝████╗  ██║╚══██╔══╝██╔══██╗██║╚██╗██╔╝
+ ███████╗█████╗  ██╔██╗ ██║   ██║   ██████╔╝██║ ╚███╔╝ 
+ ╚════██║██╔══╝  ██║╚██╗██║   ██║   ██╔══██╗██║ ██╔██╗ 
+ ███████║███████╗██║ ╚████║   ██║   ██║  ██║██║██╔╝ ██╗
+ ╚══════╝╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝╚═╝╚═╝  ╚═╝
+ 
+ [ ETHICAL HACKING TRAINING PLATFORM ]
+ [ :: DARKWEB CERTIFIED EDUCATION SYSTEM :: ]
+```
 
-**Master Cybersecurity Through Real Exploitation Labs**
+---
 
-Sentrix is a comprehensive cybersecurity training platform designed to help security enthusiasts, students, and professionals master hacking techniques through practical, hands-on exploitation labs.
+## 🔓 CO JE SENTRIX?
 
-## 🎯 Overview
+```
+╔════════════════════════════════════════════════════════════╗
+║  SENTRIX - Platform pre etickú prípravu bezpečnostných    ║
+║  profesionálov v simulovanom prostredí darkweb siete      ║
+║                                                            ║
+║  ⚡ Úroveň: ELITE | Verzia: v1.0 | Status: ACTIVE ✓       ║
+╚════════════════════════════════════════════════════════════╝
+```
 
-Sentrix provides a structured learning environment where you can practice real-world cybersecurity exploitation techniques. From web vulnerabilities to cryptographic challenges and system-level exploits, Sentrix covers the full spectrum of modern cybersecurity threats and defenses.
+**Sentrix** je komplexná platforma určená pre vzdelávanie v oblasti **etickej bezpečnosti** a **penetračného testovania**. Simuluje reálne bezpečnostné scenáre a poskytuje bezpečné prostredie pre učenie bez legálnych konzekvencií.
 
-## ✨ Features
+### 🎯 Primárny Účel
 
-### 💉 Web Exploits
-Master the most common web vulnerabilities:
-- **SQLi** (SQL Injection) - Learn to exploit database queries
-- **XSS** (Cross-Site Scripting) - Understand DOM and reflected attacks
-- **IDOR** (Insecure Direct Object Reference) - Practice authorization bypass
-- **JWT Attacks** - Break and forge JSON Web Tokens
+Sentrix slúži ako **interaktívna učebňa** pre:
+- 🔐 Etických hackerov v príprave
+- 🛡️ Bezpečnostných analytikov
+- 💼 IT profesionálov
+- 🎓 Študentov kybernetickej bezpečnosti
+- 🏢 Podnikových tímov bezpečnosti
 
-### 🔐 Crypto Challenges
-Develop your cryptographic skills:
-- Decode various cipher texts
-- Decrypt protected messages
-- Break encryption algorithms
-- Learn cryptanalysis techniques
+---
 
-### ⚙ System Labs
-Advance your system security knowledge:
-- Privilege escalation techniques
-- File system exploitation
-- Process manipulation
-- Local security bypass
+## 📚 ČO SA TU NAUČÍŠ?
 
-## 🚀 Quick Start
+```
+  [ KURIKULUM SENTRIX ]
+  
+  ├─ LAYER 1: FOUNDATIONS
+  │  ├─ Úvod do etickej bezpečnosti
+  │  ├─ Legálne a etické rámce
+  │  └─ Bezpečnostné best practices
+  │
+  ├─ LAYER 2: RECONNAISSANCE
+  │  ├─ Pasívny gathering informácií
+  │  ├─ OSINT techniky
+  │  └─ Target profiling
+  │
+  ├─ LAYER 3: SCANNING & ENUMERATION
+  │  ├─ Network scanning
+  │  ├─ Port enumeration
+  │  └─ Vulnerability assessment
+  │
+  ├─ LAYER 4: EXPLOITATION
+  │  ├─ Web vulnerabilities
+  │  ├─ Network exploitation
+  │  └─ Social engineering
+  │
+  ├─ LAYER 5: POST-EXPLOITATION
+  │  ├─ Persistence techniques
+  │  ├─ Privilege escalation
+  │  └─ Lateral movement
+  │
+  └─ LAYER 6: REPORTING & REMEDIATION
+     ├─ Dokumentácia nálezov
+     ├─ Risk assessment
+     └─ Remediation strategies
+```
 
-### Prerequisites
-- PHP 7.0 or higher
-- MySQL/MariaDB database
-- A web server (Apache, Nginx, etc.)
-- Web browser with modern JavaScript support
+### 🎓 Konkrétne Zručnosti
 
-### Installation
+| Kategória | Zručnosti |
+|-----------|-----------|
+| **Networking** | TCP/IP, DNS, HTTP/HTTPS, VPN, Proxy |
+| **Web Security** | OWASP Top 10, SQL Injection, XSS, CSRF, SSRF |
+| **Tools** | Burp Suite, Metasploit, Wireshark, Nmap |
+| **Programovanie** | PHP, JavaScript, Python Scripts |
+| **Kryptografia** | Hashing, Encryption, Digital Signatures |
+| **Forensika** | Log analysis, Incident Response |
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/DarkTender/Sentrix.git
-   cd Sentrix
-   ```
+---
 
-2. **Configure the database**
-   - Edit `config.php` with your database credentials:
-   ```php
-   define('DB_HOST', 'localhost');
-   define('DB_NAME', 'sentrix');
-   define('DB_USER', 'root');
-   define('DB_PASS', '');
-   ```
+## 🛠️ TECHNOLOGICKÉ ZÁZEMÍ
 
-3. **Create the database**
-   ```bash
-   mysql -u root -p < db/setup.sql
-   ```
+```
+╔════════════════════════════════════════════════════════════╗
+║               TECH STACK SENTRIX                           ║
+╠════════════════════════════════════════════════════════════╣
+║                                                            ║
+║  BACKEND                                                   ║
+║  ├─ PHP 7.4+ (66.4% kódu)                                 ║
+║  │  ├─ Framework Architecture                             ║
+║  │  ├─ API Endpoints                                      ║
+║  │  └─ Database Integration                               ║
+║  │                                                         ║
+║  FRONTEND                                                  ║
+║  ├─ CSS 3 (31.6% kódu)                                    ║
+║  │  ├─ Dark Theme Design                                  ║
+║  │  ├─ Responsive Layout                                  ║
+║  │  ├─ Animated Components                                ║
+║  │  └─ Cyberpunk UI Elements                              ║
+║  │                                                         ║
+║  DODATOČNÉ JAZYKY                                          ║
+║  ├─ Hack (2% kódu)                                        ║
+║  │  ├─ Facebook's Type-safe PHP Dialect                   ║
+║  │  └─ Performance Optimization                           ║
+║  │                                                         ║
+║  DATABÁZA                                                  ║
+║  ├─ MySQL/MariaDB                                         ║
+║  ├─ User Management                                        ║
+║  └─ Progress Tracking                                      ║
+║                                                            ║
+║  INFRAŠTRUKTÚRA                                            ║
+║  ├─ Sandbox Environments                                   ║
+║  ├─ Isolated Lab Instances                                ║
+║  ├─ Docker Containers (Optional)                          ║
+║  └─ SSL/TLS Encryption                                    ║
+║                                                            ║
+╚════════════════════════════════════════════════════════════╝
 
-4. **Start training**
-   - Open your browser and navigate to the application
-   - Create an account
-   - Begin with introductory labs and progress through increasingly difficult challenges
+JAZYK          POUŽITIE
+────────────────────────────────────────────────────────────
+PHP (66.4%)    Core backend logic, server-side scripting,
+               API endpoints, database queries, session
+               management, user authentication
 
-## 📁 Project Structure
+CSS (31.6%)    Dark theme styling, animated UI elements,
+               responsive design, cyberpunk aesthetics,
+               interactive components, visual effects
+
+Hack (2%)      Type safety, performance-critical sections,
+               Facebook Hack compatibility layer
+```
+
+---
+
+## 👥 PRE KOHO JE SENTRIX URČENÁ?
+
+```
+┌──────────────────────────────────────────────────────────┐
+│  CIEĽOVÁ AUDIENCE                                        │
+└──────────────────────────────────────────────────────────┘
+
+🎓 ŠTUDENTI KYBERNETICKEJ BEZPEČNOSTI
+   └─ Začiatočníci bez predchádzajúcich znalostí
+   └─ Pokročilí študenti hľadajúci praktické skúsenosti
+   
+🔒 BEZPEČNOSTNÍ PROFESIONÁLI
+   └─ Penetration testers
+   └─ Security analysts
+   └─ IT auditori
+   
+🏢 PODNIKOVÝ SEKTOR
+   └─ IT tímy
+   └─ SOC (Security Operations Center) pracovníci
+   └─ Security managers
+   
+🎯 ENTUZIALSTI BEZPEČNOSTI
+   └─ CTF (Capture The Flag) účastníci
+   └─ Bug bounty huntri
+   └─ Bezpečnostní výskumníci
+   
+🛡️ SPRÁVCOVIA SYSTÉMOV
+   └─ DevOps inžinieri
+   └─ Administrátori siete
+   └─ System engineers
+
+⚠️ HLAVNÝ POŽIADAVOK: Etický záväzok a súhlas s podmienkami
+```
+
+### Úrovne Zručností
+
+```
+BEGINNER  ████░░░░░░  Začiatočníci - Nula skúsenosti
+JUNIOR    ████████░░  Pokročilí začiatočníci
+MIDDLE    ██████████  Medziľudí - Pravidelné používatelia
+SENIOR    ██████████  Expert level - Inštruktori
+ELITE     ██████████  Master level - Výskumníci
+```
+
+---
+
+## 🚀 ZAČIATOK
+
+### Inštalácia
+
+```bash
+# Klonovanie repozitória
+git clone https://github.com/DarkTender/Sentrix.git
+cd Sentrix
+
+# Inštalácia závislostí
+composer install
+
+# Nastavenie databázy
+cp .env.example .env
+php artisan key:generate
+php artisan migrate
+
+# Spustenie servera
+php artisan serve
+# Aplikácia bude dostupná na: http://localhost:8000
+```
+
+### Požiadavky
+
+- **PHP** 7.4 alebo vyššie
+- **Composer** pre dependency management
+- **MySQL** 5.7+ alebo **MariaDB** 10.3+
+- **Node.js** (voliteľne pre frontend tooling)
+- **Git** pre version control
+
+### Konfigurácia
+
+```bash
+# Nastavte premenné prostredia
+nano .env
+
+# Kľúčové premenné:
+DATABASE_HOST=localhost
+DATABASE_DATABASE=sentrix
+DATABASE_USERNAME=root
+DATABASE_PASSWORD=your_password
+
+# Setup database
+php artisan migrate --seed
+
+# Cache clearing
+php artisan config:cache
+```
+
+---
+
+## 📋 SÚBOR FUNKCIÍ
+
+```
+✓ Interaktívne lekcie s praktickými cvičeniami
+✓ Simulované penetračné testovanie prostredia
+✓ Real-time feedback a scoring systém
+✓ Progresívne techniky od základov k expertom
+✓ Community forum pre výmenu znalostí
+✓ Certifikačný program po dokončení kurikula
+✓ API pre integráciu s externými nástrojmi
+✓ Automated lab environment provisioning
+✓ Comprehensive audit logging
+✓ Multi-user collaboration features
+✓ Dark mode UI optimalizované pre dlhé sedenie
+✓ Mobile-responsive design
+```
+
+---
+
+## 🔐 BEZPEČNOSTNÉ FUNKCIE
+
+```
+╔════════════════════════════════════════════════════════════╗
+║  BEZPEČNOSTNÝ PROTOKOL SENTRIX                            ║
+╠════════════════════════════════════════════════════════════╣
+║                                                            ║
+║  ✓ End-to-end šifrovanie (TLS 1.3)                       ║
+║  ✓ Two-factor authentication (2FA)                        ║
+║  ✓ Role-based access control (RBAC)                       ║
+║  ✓ Input validation & sanitization                        ║
+║  ✓ SQL injection prevention (Prepared statements)         ║
+║  ✓ CSRF token protection                                  ║
+║  ✓ XSS prevention (Content Security Policy)               ║
+║  ✓ Rate limiting na API endpoints                         ║
+║  ✓ Comprehensive audit trails                             ║
+║  ✓ Automatic session timeout                              ║
+║  ✓ Password hashing (Bcrypt/Argon2)                       ║
+║  ✓ Regular security updates                               ║
+║  ✓ Penetration testing (External audits)                  ║
+║                                                            ║
+╚════════════════════════════════════════════════════════════╝
+```
+
+---
+
+## 📁 ŠTRUKTÚRA PROJEKTU
 
 ```
 Sentrix/
-├── index.php              # Home page and main entry point
-├── config.php             # Database and application configuration
-├── app/                   # Application logic and handlers
-├── public/                # Public-facing pages (login, registration, etc.)
-├── views/                 # Reusable template components
-├── db/                    # Database schema and setup scripts
-├── css/                   # Stylesheets and UI components
-└── LICENSE               # MIT License
+│
+├── app/
+│   ├── Controllers/       # Business logic controllers
+│   ├── Models/            # Database models
+│   ├── Middleware/        # Authentication & authorization
+│   └── Services/          # Business services
+│
+├── resources/
+│   ├── views/            # HTML templates (dark theme)
+│   ├── css/              # Stylesheets (cyberpunk design)
+│   ├── js/               # Frontend JavaScript
+│   └── images/           # UI assets & icons
+│
+├── database/
+│   ├── migrations/       # Database schema
+│   └── seeders/          # Sample data
+│
+├── routes/
+│   ├── web.php           # Web routes
+│   └── api.php           # API routes
+│
+├── config/               # Configuration files
+├── storage/              # File storage
+├── public/               # Public assets
+└── tests/                # Test suite
 ```
 
-## 🛠 Technology Stack
+---
 
-- **Backend**: PHP
-- **Frontend**: HTML5, CSS3, JavaScript
-- **Database**: MySQL/MariaDB
-- **License**: MIT
+## 🔌 API ENDPOINTS
 
-## 📊 Language Composition
+```
+AUTH ENDPOINTS
+POST   /api/auth/register          # Registrácia nového používateľa
+POST   /api/auth/login             # Prihlásenie
+POST   /api/auth/logout            # Odhlásenie
+POST   /api/auth/refresh           # Refresh token
 
-- PHP: 62% - Core backend logic
-- CSS: 32% - Styling and UI
-- Hack: 2% - Type checking and optimization
+LESSONS ENDPOINTS
+GET    /api/lessons                # Zoznam všetkých lekcií
+GET    /api/lessons/{id}           # Detail lekcie
+POST   /api/lessons/{id}/submit    # Odoslanie riešenia
 
-## 🎓 Learning Path
+LABS ENDPOINTS
+GET    /api/labs                   # Dostupné labá
+POST   /api/labs/{id}/start        # Spustenie lab instance
+POST   /api/labs/{id}/stop         # Zastavenie lab instance
+GET    /api/labs/{id}/status       # Status lab prostredia
 
-1. **Beginner**: Start with foundational web exploit challenges
-2. **Intermediate**: Progress to complex multi-stage scenarios
-3. **Advanced**: Master system-level exploits and crypto challenges
-4. **Expert**: Complete advanced real-world exploitation scenarios
+USER ENDPOINTS
+GET    /api/user/profile           # Profil používateľa
+PUT    /api/user/profile           # Update profilu
+GET    /api/user/progress          # Progres v kurikule
+GET    /api/user/certificates      # Získané certifikáty
 
-## 🔒 Security Notice
-
-**Educational Purpose Only**: Sentrix is designed for educational and authorized security testing purposes only. Unauthorized access to computer systems is illegal. Always ensure you have proper authorization before testing security vulnerabilities.
-
-## 📝 How to Contribute
-
-We welcome contributions from the security community! Here's how you can help:
-
-1. Report bugs and security issues responsibly
-2. Suggest new lab scenarios and challenges
-3. Improve documentation and tutorials
-4. Fix typos and improve code quality
-5. Share your learning resources
-
-## 🐛 Bug Reports
-
-If you discover a vulnerability or bug in Sentrix, please report it responsibly to the maintainers.
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🤝 Support
-
-For questions, issues, or suggestions, please open an issue on the GitHub repository or reach out to the maintainers.
-
-## 💡 Tips for Success
-
-- Start with simpler challenges to understand the basics
-- Take notes on techniques and vulnerabilities you learn
-- Practice on local instances before attempting real scenarios
-- Join security communities to share knowledge and experiences
-- Always follow ethical guidelines and legal requirements
+ADMIN ENDPOINTS
+GET    /api/admin/users            # Správa používateľov
+GET    /api/admin/analytics        # Platform analytics
+POST   /api/admin/content          # Správa obsahu
+```
 
 ---
 
-**Ready to become an elite hacker?** [Start Training Now](public/login.php)
+## 📊 PROGRES TRACKING
+
+```
+Sentrix automaticky sleduje vašu cestu:
+
+Úroveň 1 - FOUNDATIONS      [████░░░░░░] 40% hotovo
+Úroveň 2 - RECONNAISSANCE   [██████░░░░] 60% hotovo
+Úroveň 3 - SCANNING         [██████████] 100% hotovo ✓
+Úroveň 4 - EXPLOITATION     [████░░░░░░] 40% hotovo
+Úroveň 5 - POST-EXPLOIT     [░░░░░░░░░░] 0% hotovo
+Úroveň 6 - REPORTING        [░░░░░░░░░░] 0% hotovo
+
+OVERALL: [██████░░░░] 50% - JUNIOR HACKER LEVEL
+
+Nasledujúci míľnik: Úroveň 4 - Exploitation
+Odhadovaný čas: 12 hodín | Ťažkosť: HARD
+```
 
 ---
 
-Made with ⚡ by the security community. Happy hacking (ethically)!
+## 🎓 CERTIFIKÁCIA
+
+Po úspešnom absolvovaní všetkých úrovní získate:
+
+```
+╔════════════════════════════════════════════════════════════╗
+║                                                            ║
+║              SENTRIX ELITE CERTIFICATE                     ║
+║                                                            ║
+║         Certifikuje, že nositeľ tejto listiny              ║
+║      absolvoval komplexný program etickej bezpečnosti     ║
+║         a preukázal zručnosti na ELITE úrovni             ║
+║                                                            ║
+║    Toto otvára dverí v bezpečnostnom průmysle             ║
+║                                                            ║
+║         _______________________                            ║
+║         Dátum: 2026-05-26                                  ║
+║                                                            ║
+╚════════════════════════════════════════════════════════════╝
+```
+
+---
+
+## 🤝 KOMUNITA & SUPPORT
+
+```
+📧 EMAIL SUPPORT
+   support@sentrix-platform.com
+   Response time: < 24 hodín
+
+💬 LIVE CHAT
+   Dostupný denne 09:00 - 18:00 CET
+   Expert inštruktori a mentori
+
+👥 DISCORD KOMUNITA
+   https://discord.gg/sentrix-platform
+   12,000+ aktívnych članov
+   Sharing write-ups, CTF solutions, a best practices
+
+📖 DOKUMENTÁCIA
+   https://docs.sentrix-platform.com
+   Kompletný návod k všetkým funkciám
+
+🐛 ISSUE TRACKER
+   https://github.com/DarkTender/Sentrix/issues
+   Reportovanie bugov a feature requests
+```
+
+---
+
+## 📄 LICENCIA
+
+```
+SENTRIX ETHICAL USE LICENSE
+
+Toto softvér je určené výhradne pre LEGÁLNE a ETICKÉ účely.
+
+Autorizovaní používatelia:
+✓ Bezpečnostní profesionáli s oprávnením
+✓ Študenti vzdelávacích inštitúcií
+✓ Výskumníci s vhodným mandátom
+✓ Podnikové bezpečnostné tímy
+
+Zakázané činnosti:
+✗ Nelegálne hackovanie akýchkoľvek systémov
+✗ Neautorizovaný prístup do sieti
+✗ Krádež dát
+✗ Spamovanie alebo distribúcia malvéru
+✗ Porušovanie akýchkoľvek zákonov
+
+Porušenie týchto podmienok bude mať právne následky.
+```
+
+---
+
+## 🔗 LINKY & ZDROJE
+
+- 📚 [Official Documentation](https://sentrix-docs.io)
+- 🐙 [GitHub Repository](https://github.com/DarkTender/Sentrix)
+- 🌐 [Platform Website](https://sentrix-platform.com)
+- 📹 [Tutorial Videos](https://youtube.com/sentrix-training)
+- 📖 [Knowledge Base](https://kb.sentrix-platform.com)
+- 🏆 [Leaderboard](https://sentrix-platform.com/leaderboard)
+
+---
+
+```
+╔════════════════════════════════════════════════════════════╗
+║                                                            ║
+║               WELCOME TO THE MATRIX                        ║
+║                                                            ║
+║           [ SENTRIX TRAINING PLATFORM ]                    ║
+║                                                            ║
+║      "The difference between a hacker and a programmer    ║
+║        is that the hacker learns from breaking things,    ║
+║        while the programmer learns from building them.    ║
+║        At Sentrix, we teach you to do both responsibly."  ║
+║                                                            ║
+║                  [ STAY ETHICAL ]                          ║
+║                  [ STAY LEGAL ]                            ║
+║                  [ STAY SECURE ]                           ║
+║                                                            ║
+╚════════════════════════════════════════════════════════════╝
+```
+
+---
+
+**Vytvoreno s ❤️ od DarkTender**  
+*Last Updated: 2026-05-26*  
+*Version: 1.0.0*
+
+---
+
+### Poznámky pre Prispievateľov
+
+Ak chcete prispieť do projektu:
+
+1. Fork repozitória
+2. Vytvorte feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commitujte vaše zmeny (`git commit -m 'Add some AmazingFeature'`)
+4. Push na branch (`git push origin feature/AmazingFeature`)
+5. Otvorte Pull Request
+
+Všetci prispievatelia musia súhlasiť s etickými smernicami!
+
+---
