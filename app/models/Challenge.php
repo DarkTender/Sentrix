@@ -53,9 +53,9 @@ class Challenge {
             SET
                 title = ?,
                 description = ?,
-                category = ?,
+                type = ?,
                 difficulty = ?,
-                flag = ?,
+                correct_answer = ?,
                 points = ?
             WHERE id = ?
         ");
@@ -63,9 +63,9 @@ class Challenge {
         return $stmt->execute([
             $data['title'],
             $data['description'],
-            $data['category'],
+            $data['type'],
             $data['difficulty'],
-            $data['flag'],
+            $data['answer'],
             $data['points'],
             $id
         ]);

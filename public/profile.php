@@ -53,6 +53,7 @@ require_once __DIR__ . '/../views/header.php';
 <pre>[USER] <?= $user['username'] ?>
 
 [SCORE] <?= $score ?>
+
 [LEVEL] <?= $level ?>
 
 [SYSTEM] ONLINE
