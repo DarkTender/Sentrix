@@ -19,6 +19,12 @@ if ($user['role'] !== 'admin') {
     die("Access denied");
 }
 
+require_once __DIR__ . '/../../app/models/Challenge.php';
+
+$challengeModel = new Challenge($conn);
+
+$challenges = $challengeModel->getAll();
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $stmt = $conn->prepare("
@@ -108,6 +114,54 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <button class="btn">🚀 Create Challenge</button>
 
       </form>
+      <hr style="margin:40px 0; border-color:#222;">
+
+<h2>📋 All Challenges</h2>
+
+<table class="challenge-table">
+
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Type</th>
+        <th>Difficulty</th>
+        <th>Points</th>
+        <th>Actions</th>
+    </tr>
+
+    <?php foreach($challenges as $challenge): ?>
+
+    <tr>
+        <td><?= $challenge['id'] ?></td>
+        <td>
+            <?= htmlspecialchars($challenge['title']) ?>
+        </td>
+        <td>
+            <?= htmlspecialchars($challenge['type']) ?>
+        </td>
+        <td>
+            <?= htmlspecialchars($challenge['difficulty']) ?>
+        </td>
+        <td>
+            <?= $challenge['points'] ?>
+        </td>
+        <td>
+            <a class="edit-btn"
+               href="edit_challenge.php?id=<?= $challenge['id'] ?>">
+                ✏ Edit
+            </a>
+
+            <a class="delete-btn"
+               href="delete_challenge.php?id=<?= $challenge['id'] ?>"
+               onclick="return confirm('Delete challenge?')">
+                🗑 Delete
+            </a>
+        </td>
+    </tr>
+
+    <?php endforeach; ?>
+
+</table>
 
     </div>
 

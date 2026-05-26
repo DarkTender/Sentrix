@@ -138,3 +138,46 @@
     color: var(--muted);
     margin-bottom: 4px;
   }
+  .challenge-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #111;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.challenge-table th,
+.challenge-table td {
+    padding: 14px;
+    border-bottom: 1px solid #222;
+    text-align: left;
+}
+
+.challenge-table th {
+    background: #181818;
+    color: #00ff88;
+}
+
+.challenge-table tr:hover {
+    background: #161616;
+}
+
+.edit-btn,
+.delete-btn {
+    padding: 8px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    margin-right: 8px;
+}
+
+.edit-btn {
+    background: #1e3a8a;
+    color: white;
+}
+
+.delete-btn {
+    background: #7f1d1d;
+    color: white;
+}
