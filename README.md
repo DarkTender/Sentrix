@@ -16,7 +16,7 @@
 
 **Sentrix** je interaktívna trénovacia platforma určená pre študentov a nadšencov kyberbezpečnosti. Ponúka realistické, praktické výzvy z oblasti **etického hackingu** a **penetračného testovania**.
 
-> ⚠️ **Varovanie:** Táto platforma je určená iba na **vzdelávací účel**. Používajte ju zodpovedne a legálne!
+> ⚠️ **Varovanie:** Táto platforma je určená iba na **vzdelávací účel**.  Používajte ju zodpovedne a legálne!
 
 ---
 
