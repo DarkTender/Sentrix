@@ -134,7 +134,7 @@ function draw(){
     }
 
     const pulseTime =
-        performance.now()*0.001;
+        performance.now()*0.0001;
 
     for(let i=0;i<positions.length;i++){
 
