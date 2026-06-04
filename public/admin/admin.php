@@ -26,7 +26,30 @@ $challengeModel = new Challenge($conn);
 $challenges = $challengeModel->getAll();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (
+      isset($_FILES['challenge_file']) &&
+      $_FILES['challenge_file']['error'] === UPLOAD_ERR_OK
+  ) {
 
+      $uploadDir = __DIR__ . '/../challenge-types/';
+
+      if (!is_dir($uploadDir)) {
+          mkdir($uploadDir, 0777, true);
+      }
+
+      $fileName = basename($_FILES['challenge_file']['name']);
+
+      if (
+          move_uploaded_file(
+              $_FILES['challenge_file']['tmp_name'],
+              $uploadDir . $fileName
+          )
+      ) {
+          echo "<div class='success-box'>📁 Uploaded: $fileName</div>";
+      } else {
+          echo "<div class='error-box'>❌ Upload failed</div>";
+      }
+  }
     $stmt = $conn->prepare("
         INSERT INTO challenges 
         (title, description, type, difficulty, points, correct_answer, explanation)
@@ -70,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <div class="card">
 
-      <form method="POST">
+      <form method="POST" enctype="multipart/form-data">
 
         <div>
           <div class="label">Title</div>
@@ -110,11 +133,56 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <div class="label">Explanation</div>
           <textarea name="explanation" placeholder="Explain solution..."></textarea>
         </div>
+        <div class="action-buttons">
 
-        <button class="btn">🚀 Create Challenge</button>
+        <?php
+          $templateSource = htmlspecialchars(
+          file_get_contents('template_challenge.php')
+          );
+        ?>
 
+          <button type="button" class="btn-source" id="openSource">
+              VIEW SOURCE CHALLENGE
+          </button>
+
+          <div id="sourceModal" class="modal">
+              <div class="modal-content">
+
+                  <button id="closeModal">✕</button>
+
+                  <pre id="sourceCode"><?= $templateSource ?></pre>
+
+              </div>
+          </div>
+          
+          <script>
+                const modal = document.getElementById("sourceModal");
+                document.getElementById("openSource").addEventListener("click", () => {
+                    modal.style.display = "block";
+                });
+                document.getElementById("closeModal").addEventListener("click", () => {
+                    modal.style.display = "none";
+                });
+          </script>
+
+          
+          <label class="btn-upload">
+              📁 UPLOAD FILE
+              <input type="file" name="challenge_file" hidden>
+          </label>
+
+          <button type="submit">
+              Upload
+          </button>
+
+
+          <button type="submit" class="btn-create">
+          🚀 CREATE CHALLENGE
+          </button>
+
+        </div>
       </form>
-      <hr style="margin:40px 0; border-color:#222;">
+  <hr style="margin:40px 0; border-color:#222;">
 
 <h2>📋 All Challenges</h2>
 
