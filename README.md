@@ -14,7 +14,7 @@
 
 ## 🔓 O Sentrix
 
-**Sentrix** je interaktívna trainovacia platforma určená pre študentov a nadšencov kyberbezpečnosti. Ponúka realistické, praktické výzvy z oblasti **etického hackingu** a **penetračného testovania**.
+**Sentrix** je interaktívna trénovacia platforma určená pre študentov a nadšencov kyberbezpečnosti. Ponúka realistické, praktické výzvy z oblasti **etického hackingu** a **penetračného testovania**.
 
 > ⚠️ **Varovanie:** Táto platforma je určená iba na **vzdelávací účel**. Používajte ju zodpovedne a legálne!
 
@@ -24,45 +24,14 @@
 
 | Feature | Popis |
 |---------|-------|
-| 💉 **Web Exploits** | SQLi, XSS, IDOR, JWT attacks - Naucz sa hľadať a exploitovať webové zraniteľnosti |
+| 💉 **Web Exploits** | SQLi, XSS, IDOR, JWT attacks - Nauč sa hľadať a exploitovať webové zraniteľnosti |
 | 🔐 **Crypto Challenges** | Dešifrovanie, dekryptácia a prelomenie šifier - Posilňuj svoje kryptografické zručnosti |
-| ⚙️ **System Labs** | Privilege escalation, exploitácia súborov - Másteríuj systémové bezpečnostné hry |
-| 🎖️ **Role-based Access** | Staň sa adminom, posuď sa v leaderboarde - Konkuruj s ostatnými študentami |
+| ⚙️ **System Labs** | Privilege escalation, exploitácia súborov - Másteruje systémové bezpečnostné hry |
+| 🎖️ **Role-based Access** | Staň sa adminom, posuň sa v leaderboarde - Konkuruj s ostatnými študentami |
 
 ---
 
 ## 🏗️ Technologická Architektúra
-
-### Stack Technológií
-```
-┌─────────────────────────────────────┐
-│   Frontend Layer                    │
-│  • PHP (57%)  - Backend rendering  │
-│  • HTML/CSS   - Interface design   │
-│  • JavaScript (13.9%) - Interaktivita │
-└─────────────────────────────────────┘
-           ↓
-┌─────────────────────────────────────┐
-│   MVC Aplikačná Vrstva              │
-│  • Core: Auth & Database            │
-│  • Models: Challenge, User          │
-│  • Public: Presentation layer       │
-└─────────────────────────────────────┘
-           ↓
-┌─────────────────────────────────────┐
-│   Backend Logika                    │
-│  • SQLi, XSS, Crypto challenges     │
-│  • Admin management system          │
-│  • User authentication              │
-└─────────────────────────────────────┘
-           ↓
-┌─────────────────────────────────────┐
-│   MySQL Database                    │
-│  • User profiles & scores           │
-│  • Challenge definitions            │
-│  • Submissions & scores             │
-└─────────────────────────────────────┘
-```
 
 ---
 
@@ -168,26 +137,9 @@ Každá výzva má:
 └──────────────────────────────────────┘
 ```
 
-### 5️⃣ **Workflow Užívateľa**
-```
-1. Registrácia → login.php
-2. Autentifikácia → Session start ($_SESSION['user'])
-3. Zobrazenie výziev → challenges.php
-4. Výber výzvy → challenge.php
-5. Exploitácia → challenge-types/*.php
-6. Odoslanie flagu → body
-7. Body na leaderboard → leaderboard.php
-```
-
 ---
 
 ## 🚀 Quick Start - Ako Začať
-
-### Požiadavky
-- PHP 7.4+
-- MySQL/MariaDB
-- Web server (Apache/Nginx)
-- Git
 
 ### Instalácia
 
@@ -237,70 +189,6 @@ php -S localhost:8000
 - Authentication bypass
 - Session hijacking
 - Token manipulation
-
----
-
-## 📊 Technické Detaily
-
-### Databázová Schéma
-```sql
--- Užívateľi
-CREATE TABLE users (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    username VARCHAR(255) UNIQUE,
-    password VARCHAR(255) HASHED,
-    email VARCHAR(255),
-    role ENUM('user', 'admin'),
-    points INT DEFAULT 0
-);
-
--- Výzvy
-CREATE TABLE challenges (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    title VARCHAR(255),
-    description TEXT,
-    category VARCHAR(50),
-    difficulty ENUM('Easy', 'Medium', 'Hard'),
-    flag/answer TEXT,
-    points INT
-);
-
--- Submisie
-CREATE TABLE submissions (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    user_id INT,
-    challenge_id INT,
-    submitted_answer TEXT,
-    is_correct BOOLEAN,
-    submitted_at TIMESTAMP
-);
-```
-
-### MVC Pattern
-```
-Model  (app/models/)     ← Databázová logika
-   ↓
-View   (views/)          ← HTML šablóny
-   ↓
-Controller (public/)     ← Obchodná logika
-```
-
----
-
-## 🔒 Bezpečnostné Pracovné Postupy
-
-✅ **Implementované:**
-- Prepared statements (SQL injection ochrana)
-- Session-based authentication
-- Role-based access control
-- Password hashing (budúcnosť)
-
-⚠️ **Na Zlepšenie:**
-- CSRF tokens
-- Rate limiting
-- HTTPS enforcement
-- Input validation/sanitization
-
 ---
 
 ## 👨‍💻 Ako Prispieť
@@ -331,20 +219,13 @@ MIT License - Pozri [LICENSE](LICENSE) file
 ## 🤝 Kontakt & Support
 
 - **GitHub Issues:** [Nahláš problém](https://github.com/DarkTender/Sentrix/issues)
-- **Autor:** DarkTender
+- **Autor:** Dušan Šavrda
 
 ---
 
 ## ⚡ Disclaimer
 
 ```
-███████╗ █████╗ ███████╗███████╗███████╗████████╗██╗
-██╔════╝██╔══██╗██╔════╝██╔════╝██╔════╝╚══██╔══╝██║
-███████╗███████║███████╗███████╗█████╗     ██║   ██║
-╚════██║██╔══██║╚════██║╚════██║██╔══╝     ██║   ██║
-███████║██║  ██║███████║███████║███████╗   ██║   ██║
-╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝   ╚═╝   ╚═╝
-
 Táto platforma je IBA na vzdelávací účel.
 Používaj ju IBA na systémoch, ktoré vlastníš alebo
 máš EXPLICITNÝ SÚHLAS na testing.
