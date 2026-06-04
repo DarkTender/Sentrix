@@ -1,10 +1,14 @@
-body {
-    background: radial-gradient(circle at 20% 20%, #0ea5e922, transparent),
-                radial-gradient(circle at 80% 80%, #22c55e11, transparent),
-                #020617;
-    color: #e2e8f0;
-    font-family: 'Segoe UI', sans-serif;
+#hero-bg{
+    position:fixed;
+    inset:0;
+    width:100vw;
+    height:100vh;
+    z-index:-1;
+}
+
+body{
     text-align: center;
+    overflow-x:hidden;
 }
 
 body::before {
