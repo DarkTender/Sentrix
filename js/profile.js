@@ -24,7 +24,7 @@ window.addEventListener("mousemove", e => {
 
 const nodes = [];
 
-const totalNodes = 35;
+const totalNodes = 105;
 
 for(let i=0;i<totalNodes;i++){
 
@@ -37,7 +37,7 @@ for(let i=0;i<totalNodes;i++){
     nodes.push({
         baseAngle: angle,
         radius: radius,
-        speed: 0.0005 + Math.random()*0.001,
+        speed: 0.00001 + Math.random()*0.0005,
         size: 2 + Math.random()*3
     });
 }
@@ -195,7 +195,7 @@ function draw(){
     ctx.lineWidth=2;
     ctx.stroke();
 
-    time += 0.01;
+    time += 0.005;
 
     requestAnimationFrame(draw);
 }
