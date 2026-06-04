@@ -17,7 +17,6 @@
 **Sentrix** je interaktívna trénovacia platforma určená pre študentov a nadšencov kyberbezpečnosti. Ponúka realistické, praktické výzvy z oblasti **etického hackingu** a **penetračného testovania**.
 
 > ⚠️ **Varovanie:** Táto platforma je určená iba na **vzdelávací účel**.  Používajte ju zodpovedne a legálne!
-
 ---
 
 ## 🎯 Hlavné Features
@@ -28,70 +27,6 @@
 | 🔐 **Crypto Challenges** | Dešifrovanie, dekryptácia a prelomenie šifier - Posilňuj svoje kryptografické zručnosti |
 | ⚙️ **System Labs** | Privilege escalation, exploitácia súborov - Másteruje systémové bezpečnostné hry |
 | 🎖️ **Role-based Access** | Staň sa adminom, posuň sa v leaderboarde - Konkuruj s ostatnými študentami |
-
----
-
-## 🏗️ Technologická Architektúra
-
----
-
-## 📂 Štruktúra Projektu
-
-```
-Sentrix/
-├── app/                           # Aplikačná logika
-│   ├── core/
-│   │   ├── Auth.php              # ✓ Autentifikácia & Session management
-│   │   └── Database.php          # ✓ Databázové konekcie (PDO)
-│   └── models/
-│       ├── Challenge.php         # ✓ CRUD operácie s výzvami
-│       └── User.php              # ✓ Správa užívateľských údajov
-│
-├── public/                        # Verejný front-end
-│   ├── challenge.php             # Zobrazenie jednotlivej výzvy
-│   ├── challenges.php            # Zoznam všetkých výziev
-│   ├── dashboard.php             # Užívateľský dashboard
-│   ├── leaderboard.php           # Rebríček bodov
-│   ├── login.php                 # Prihlasovacia formulár
-│   ├── logout.php                # Odhlásenie
-│   ├── profile.php               # Profil užívateľa
-│   │
-│   ├── admin/                    # Admin panel
-│   │   ├── admin.php             # Admin dashboard
-│   │   ├── users.php             # Správa užívateľov
-│   │   ├── edit_challenge.php    # Editácia výziev
-│   │   └── delete_challenge.php  # Mazanie výziev
-│   │
-│   ├── user/
-│   │   └── user.php              # Užívateľské funkcie
-│   │
-│   └── challenge-types/          # 🎯 Typy exploitov
-│       ├── web.php               # Web security challenges
-│       ├── sqli.php              # SQL Injection lab
-│       ├── crypto.php            # Cryptography challenges
-│       ├── system.php            # System exploitation
-│       ├── role.php              # Role-based access control
-│       └── become_admin.php      # Privilege escalation
-│
-├── views/                         # HTML šablóny
-│   ├── header.php                # Navigačná lišta
-│   ├── footer.php                # Päta stránky
-│   ├── login.php                 # Login form
-│   └── Register.php              # Registračná forma
-│
-├── css/                          # Štýly (27.4%)
-│   └── homepage.css              # Design s hackerskými efektami
-│
-├── js/                           # JavaScripty (13.9%)
-│   └── homepage.js               # Interaktivita & animácie
-│
-├── db/
-│   └── sentrix.sql              # Databázová schéma
-│
-├── config.php                    # Konfigurácia (DB, BASE_URL)
-├── index.php                     # Landing page
-└── LICENSE                       # MIT License
-```
 
 ---
 
