@@ -171,15 +171,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               <input type="file" name="challenge_file" hidden>
           </label>
 
-          <button type="submit">
-              Upload
-          </button>
-
-
           <button type="submit" class="btn-create">
           🚀 CREATE CHALLENGE
           </button>
-
         </div>
       </form>
   <hr style="margin:40px 0; border-color:#222;">
