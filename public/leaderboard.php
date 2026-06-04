@@ -23,7 +23,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 require_once __DIR__ . '/../views/header.php';
 ?>
-
+<canvas id="leaderboard-bg"></canvas>
 <link rel="stylesheet" href="/Sentrix/css/leaderboard.css">
 
 <div class="leaderboard-container">
@@ -89,5 +89,6 @@ require_once __DIR__ . '/../views/header.php';
     </div>
 
 </div>
+<script src="/Sentrix/js/leaderboard.js"></script>
 
 <?php require_once __DIR__ . '/../views/footer.php'; ?>
