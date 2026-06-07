@@ -66,27 +66,6 @@ CREATE TABLE `submissions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Sťahujem dáta pre tabuľku `submissions`
---
-
-INSERT INTO `submissions` (`id`, `user`, `challenge_id`, `answer`, `is_correct`, `created_at`) VALUES
-(39, 7, 1, '\' OR 1=1 --', 0, '2026-05-26 11:19:19'),
-(40, 7, 1, '\' OR 1=1 -- \'', 1, '2026-05-26 11:19:32'),
-(41, 7, 1, '\' OR 1=1 --', 0, '2026-05-26 11:19:44'),
-(42, 7, 2, 'password', 1, '2026-05-26 11:21:01'),
-(43, 7, 3, 'WerZ23...12poREtzuF', 1, '2026-05-26 11:21:29'),
-(44, 7, 4, '../../../../etc/passwd', 1, '2026-05-26 11:21:39'),
-(45, 7, 5, 'flag{cookie_tampering_success}', 1, '2026-05-26 11:22:07'),
-(46, 8, 3, 'password', 0, '2026-05-26 11:28:35'),
-(47, 8, 3, 'password', 0, '2026-05-26 11:28:39'),
-(48, 8, 3, 'password', 0, '2026-05-26 11:28:42'),
-(49, 8, 2, 'password', 1, '2026-05-26 11:28:50'),
-(50, 1, 2, 'password', 1, '2026-05-26 18:29:52'),
-(51, 9, 4, '../../../../etc/passwd', 1, '2026-05-26 18:31:32');
-
--- --------------------------------------------------------
-
---
 -- Štruktúra tabuľky pre tabuľku `users`
 --
 
@@ -104,8 +83,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `score`, `created_at`, `role`) VALUES
-(1, 'admin', '$2y$10$utX4NVxZM66EFLp09RgF2Ozh1DjwIMxcdwvrWBpkaBNilP1820KMW', 5, '2026-05-03 15:54:40', 'admin'),
-(9, 'dusan', '$2y$10$qML38VYbw9IzIcYlZXw/x.WF9T/gvHOHcMfZe1EoGHbfFRCE6eIbK', 20, '2026-05-26 18:30:51', 'user');
+(1, 'admin', '$2y$10$utX4NVxZM66EFLp09RgF2Ozh1DjwIMxcdwvrWBpkaBNilP1820KMW', 0, '2026-05-03 15:54:40', 'admin');
 
 --
 -- Kľúče pre exportované tabuľky
@@ -138,19 +116,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pre tabuľku `challenges`
 --
 ALTER TABLE `challenges`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pre tabuľku `submissions`
 --
 ALTER TABLE `submissions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT pre tabuľku `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
