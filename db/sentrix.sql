@@ -66,6 +66,7 @@ CREATE TABLE `submissions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+<<<<<<< Updated upstream
 -- Sťahujem dáta pre tabuľku `submissions`
 --
 
@@ -75,6 +76,8 @@ INSERT INTO `submissions` (`id`, `user_id`, `challenge_id`, `answer`, `is_correc
 -- --------------------------------------------------------
 
 --
+=======
+>>>>>>> Stashed changes
 -- Štruktúra tabuľky pre tabuľku `users`
 --
 
@@ -92,8 +95,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `score`, `created_at`, `role`) VALUES
+<<<<<<< Updated upstream
 (1, 'admin', '$2y$10$CeltFuDFQ8P0mRloC4ICzuV6Vj8rHrtF7SRLUyoQOVW49AXgE7Ek6', 0, '2026-04-08 07:15:49', 'admin'),
 (2, 'user', '$2y$10$erTJxfOFRnYJXJe25tQnyeSVZdQHwEM8E8ki3g1UoapTRDdNy3z9a', 0, '2026-04-08 07:43:32', 'user');
+=======
+(1, 'admin', '$2y$10$utX4NVxZM66EFLp09RgF2Ozh1DjwIMxcdwvrWBpkaBNilP1820KMW', 0, '2026-05-03 15:54:40', 'admin');
+>>>>>>> Stashed changes
 
 --
 -- Kľúče pre exportované tabuľky
@@ -134,12 +141,13 @@ ALTER TABLE `challenges`
 -- AUTO_INCREMENT pre tabuľku `submissions`
 --
 ALTER TABLE `submissions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT pre tabuľku `users`
 --
 ALTER TABLE `users`
+<<<<<<< Updated upstream
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
@@ -152,6 +160,9 @@ ALTER TABLE `users`
 ALTER TABLE `submissions`
   ADD CONSTRAINT `submissions_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
   ADD CONSTRAINT `submissions_ibfk_2` FOREIGN KEY (`challenge_id`) REFERENCES `challenges` (`id`);
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+>>>>>>> Stashed changes
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
