@@ -1,12 +1,14 @@
 <?php
+session_start();
 require_once __DIR__ . '/../views/header.php';
 
-session_start();
 
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../app/core/Database.php';
 require_once __DIR__ . '/../app/models/Challenge.php';
+require_once __DIR__ . '/../app/core/Auth.php';
 
+Auth::check();
 $db = new Database();
 $conn = $db->connect();
 
@@ -20,7 +22,9 @@ if ($difficulty === 'all') {
     $challenges = $challengeModel->getByDifficulty($difficulty);
 }
 ?>
+<link rel="stylesheet" href="/Sentrix/css/challenges.css">
 
+<canvas id="radar-bg"></canvas>
 <main class="ix-container">
 
 <h1 class="ix-title">⚡ Challenge Labs</h1>
@@ -39,7 +43,6 @@ if ($difficulty === 'all') {
 <?php foreach ($challenges as $c): 
   $cardDifficulty = strtolower($c['difficulty'] ?? 'easy');
   $points = $c['points'] ?? 10;
-  $status = rand(0,1) ? "solved" : "new";
 ?>
 
   <div class="challenge-card <?= $status ?>">
@@ -56,10 +59,6 @@ if ($difficulty === 'all') {
       <span class="points">+<?= $points ?> XP</span>
     </div>
 
-    <div class="challenge-status <?= $status ?>">
-      <?= $status === 'solved' ? '✔ Solved' : '⚡ New' ?>
-    </div>
-
     <a href="/Sentrix/public/challenge.php?id=<?= $c['id'] ?>" class="challenge-btn">
       Enter Lab →
     </a>
@@ -71,5 +70,6 @@ if ($difficulty === 'all') {
 </div>
 
 </main>
+<script src="/Sentrix/js/challenges.js"></script>
 
 <?php require_once __DIR__ . '/../views/footer.php'; ?>

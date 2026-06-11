@@ -23,14 +23,17 @@
   </div>
 
   <div class="nav-center">
-    <a href="/Sentrix/public/user.php" class="nav-link active" >Profile</a>
-    <a href="/Sentrix/public/index.php" class="nav-link">Dashboard</a>
+    <a href="/Sentrix/public/profile.php" class="nav-link active" >Profile</a>
+    <a href="/Sentrix/index.php" class="nav-link">Dashboard</a>
     <a href="/Sentrix/public/challenges.php" class="nav-link">Challenges</a>
     <a href="/Sentrix/public/leaderboard.php" class="nav-link">Leaderboard</a>
+    <?php if (isset($_SESSION['user']) && $_SESSION['user']['role'] === 'admin'): ?>
+      <a href="/Sentrix/public/admin/admin.php" class="nav-link">⚙ Admin</a>
+  <?php endif; ?>
   </div>
 
   <div class="nav-right">
-    <a href="logout.php" class="nav-link logout">Logout</a>
+    <a href="/Sentrix/public/logout.php" class="nav-link logout">Logout</a>
   </div>
 
 </nav>

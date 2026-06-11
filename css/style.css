@@ -206,8 +206,7 @@ body {
   justify-content: center;
   align-items: center;
 
-  background:
-    radial-gradient(circle at center, #0f172a, #020617);
+
 }
 
 .login-card {

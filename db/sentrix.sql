@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hostiteľ: 127.0.0.1
--- Čas generovania: So 11.Apr 2026, 00:08
+-- Čas generovania: Št 04.Jún 2026, 10:46
 -- Verzia serveru: 10.4.32-MariaDB
 -- Verzia PHP: 8.2.12
 
@@ -47,8 +47,8 @@ INSERT INTO `challenges` (`id`, `title`, `description`, `type`, `difficulty`, `p
 (1, 'SQL Injection Login', 'Obíď login pomocou SQL injection.', 'sqli', 'intermediate', 15, '\' OR 1=1 -- \'', 'SQL injection bypass', '2026-04-08 07:13:26'),
 (2, 'MD5 Crack', 'Crackni hash: 5f4dcc3b5aa765d61d8327deb882cf99', 'crypto', 'easy', 5, 'password', 'MD5 hash', '2026-04-08 07:13:26'),
 (3, 'Hidden Password', 'Pozri source stránky a nájdi heslo.', 'web', 'extreme', 50, 'WerZ23...12poREtzuF', 'HTML source', '2026-04-08 07:13:26'),
-(4, 'LFI Exploit', 'Získaj obsah /etc/passwd pomocou inputu.', 'system', 'hard', 20, 'etc/passwd', 'Path traversal', '2026-04-08 07:13:26'),
-(5, 'Unlimited Discount', 'Tento e-shop umožňuje použiť zľavový kód.\nSkús získať produkt zadarmo.', 'bussiness', 'intermediate', 10, 'price = -100', 'business logic vulnerability', '2026-04-10 20:46:07');
+(4, 'LFI Exploit', 'Získaj obsah /etc/passwd pomocou inputu.', 'system', 'hard', 20, '../../../../etc/passwd', 'Path traversal', '2026-04-08 07:13:26'),
+(5, 'Role Switch', 'Je nastavene Cookie na role user a treba zistit ako zmenit nastavenie aby ziskal role admin', 'role', 'hard', 20, 'flag{cookie_tampering_success}', 'Otvorenie Debug Mode v browseri a zmena role user na role admin.\r\nZiskanie flag', '2026-04-10 23:37:31');
 
 -- --------------------------------------------------------
 
@@ -58,7 +58,7 @@ INSERT INTO `challenges` (`id`, `title`, `description`, `type`, `difficulty`, `p
 
 CREATE TABLE `submissions` (
   `id` int(11) NOT NULL,
-  `user_id` int(11) DEFAULT NULL,
+  `user` int(11) DEFAULT NULL,
   `challenge_id` int(11) DEFAULT NULL,
   `answer` text DEFAULT NULL,
   `is_correct` tinyint(1) DEFAULT NULL,
@@ -66,7 +66,6 @@ CREATE TABLE `submissions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
-<<<<<<< Updated upstream
 -- Sťahujem dáta pre tabuľku `submissions`
 --
 
@@ -77,7 +76,7 @@ INSERT INTO `submissions` (`id`, `user_id`, `challenge_id`, `answer`, `is_correc
 
 --
 =======
->>>>>>> Stashed changes
+
 -- Štruktúra tabuľky pre tabuľku `users`
 --
 
@@ -95,12 +94,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `score`, `created_at`, `role`) VALUES
-<<<<<<< Updated upstream
 (1, 'admin', '$2y$10$CeltFuDFQ8P0mRloC4ICzuV6Vj8rHrtF7SRLUyoQOVW49AXgE7Ek6', 0, '2026-04-08 07:15:49', 'admin'),
 (2, 'user', '$2y$10$erTJxfOFRnYJXJe25tQnyeSVZdQHwEM8E8ki3g1UoapTRDdNy3z9a', 0, '2026-04-08 07:43:32', 'user');
 =======
 (1, 'admin', '$2y$10$utX4NVxZM66EFLp09RgF2Ozh1DjwIMxcdwvrWBpkaBNilP1820KMW', 0, '2026-05-03 15:54:40', 'admin');
->>>>>>> Stashed changes
 
 --
 -- Kľúče pre exportované tabuľky
@@ -116,9 +113,7 @@ ALTER TABLE `challenges`
 -- Indexy pre tabuľku `submissions`
 --
 ALTER TABLE `submissions`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`user_id`),
-  ADD KEY `challenge_id` (`challenge_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexy pre tabuľku `users`
@@ -147,7 +142,6 @@ ALTER TABLE `submissions`
 -- AUTO_INCREMENT pre tabuľku `users`
 --
 ALTER TABLE `users`
-<<<<<<< Updated upstream
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
@@ -162,7 +156,6 @@ ALTER TABLE `submissions`
   ADD CONSTRAINT `submissions_ibfk_2` FOREIGN KEY (`challenge_id`) REFERENCES `challenges` (`id`);
 =======
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
->>>>>>> Stashed changes
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
