@@ -50,7 +50,7 @@
     ?>
 
     <div style="margin-top:20px; color:#64748b;">
-      💡 Hint: Skús použiť <code>../../../../etc/passwd</code>
+      💡 Hint: Skús sa dostať tam kde sa nachádzajú v linuxe heslá. Treba sa vrátiť o 4x späť</code>
     </div>
 
   </div>
