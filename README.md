@@ -23,7 +23,7 @@
 
 | Feature | Popis |
 |---------|-------|
-| 💉 **Web Exploits** | SQLi, XSS, IDOR, JWT attacks - Nauč sa hľadať a exploitovať webové zraniteľnosti |
+| 💉 **Web Exploits** | SQLi, JWT attacks - Nauč sa hľadať a exploitovať webové zraniteľnosti |
 | 🔐 **Crypto Challenges** | Dešifrovanie, dekryptácia a prelomenie šifier - Posilňuj svoje kryptografické zručnosti |
 | ⚙️ **System Labs** | Privilege escalation, exploitácia súborov - Másteruje systémové bezpečnostné hry |
 | 🎖️ **Role-based Access** | Staň sa adminom, posuň sa v leaderboarde - Konkuruj s ostatnými študentami |
@@ -64,7 +64,7 @@ Každá výzva má:
 ┌──────────────────────────────────────┐
 │ CHALLENGE TYPES (public/challenge-types/)    │
 ├──────────────────────────────────────┤
-│ 💉 Web           → SQLi, XSS, IDOR exploits │
+│ 💉 Web           → SQLi │
 │ 🔐 Crypto        → Cipher breaking          │
 │ ⚙️ System         → Privilege escalation     │
 │ 👑 Role          → RBAC vulnerabilities     │
@@ -103,25 +103,16 @@ php -S localhost:8000
 
 ### 💉 **Web Security**
 - SQL Injection (SQLi) - Ako prelomiť databázové dotazy
-- Cross-Site Scripting (XSS) - JavaScript injection
-- Insecure Direct Object References (IDOR)
 - JWT vulnerabilities
 
 ### 🔐 **Cryptography**
-- Substitučné šifry
-- Caesar cipher, ROT13
 - Base64 encoding/decoding
-- Hashovanie a SSL/TLS principy
 
 ### ⚙️ **System Administration**
 - Privilege escalation techniky
-- File permissions a SUID bits
-- Command injection
-- Shell metacharacters
 
 ### 👑 **Access Control**
 - Role-Based Access Control (RBAC)
-- Authentication bypass
 - Session hijacking
 - Token manipulation
 ---
